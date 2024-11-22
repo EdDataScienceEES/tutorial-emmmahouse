@@ -21,4 +21,28 @@
 ## 1. Introducing the importance of interactive visualisations 
 We all know traditional static charts and graphs are useful as infographics, but interactive visuals offer more flexibility and excitement in data science. We can zoom in on details, observe changes over time and explore data in depth ... how exciting I hear you cry! In all seriousness, if you want your data and graphs to stand out in the crowd, this is the tutorial for you! There are a range of packages we will be delving into that help you break down complex datasets into more engaging and easily understandable animated infographics. You can personalise the data to fit a particular theme, you want barbie? We can make that happen. Overall, these are super handy packages that can help elevate your data presentation, now let's get into it ...
 
-## 2. Downloading the packages 
+## 2. Setting the working directory, installing and downloading the packages 
+To execute all of these exciting interactive infographics, we need to make sure you are set up to code them. Essentially, this is the admin faff before getting into the nitty gritty code. Firstly, we need to set your working directory, then install and download the packages necessary for this tutorial. 
+
+```
+# Set your working directory, this will be different for you depending on your filepath to the downloaded repository 
+setwd("~/Downloads/tutorial-emmmahouse")
+
+# Install packages 
+install.packages("tidyverse")    # Helps us clean the data
+install.packages("DT")           # Renders the interactive tables in reports 
+install.packages("flextable")    # Helps us make attractive and formatted tables for output in word, powerpoint or HTML 
+install.packages("ggplot2")      # Helps us create the beautiful graphs
+install.packages("dplyr")        # Provides a range of functions to help manipulate data
+install.packages("plotly")       # Creates the interactive graphs, even 3D plots or geographic maps
+install.packages("gganimate")    # Adds animations to static plots, especially used with time series data
+
+# Download libraries 
+library(tidyverse)
+library(DT)
+library(flextable)
+library(ggplot2)
+library(dplyr)
+library(plotly)
+library(gganimate) 
+```
