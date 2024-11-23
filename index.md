@@ -49,7 +49,7 @@ library(gganimate)
 Time to load in the data you would like to use for this tutorial ...
 ```
 # Load the puffin data 
-load ("data/atlantic_puffin.csv")
+atlantic_puffin <- read.csv("data/atlantic_puffin.csv")
 ```
 
 ## 3. Wrangling the data
