@@ -19,7 +19,7 @@
 ** In this tutorial we will be using data from this repository. Click on this link to download the Puffin data used to follow the tutorial directly, or use your own data. **
 
 ## 1. Introducing the importance of interactive visualisations 
-We all know traditional static charts and graphs are useful as infographics, but interactive visuals offer more flexibility and excitement in data science. We can zoom in on details, observe changes over time and explore data in depth ... how exciting I hear you cry! In all seriousness, if you want your data and graphs to stand out in the crowd, this is the tutorial for you! There are a range of packages we will be delving into that help you break down complex datasets into more engaging and easily understandable animated infographics. You can personalise the data to fit a particular theme, you want barbie? We can make that happen. Overall, these are super handy packages that can help elevate your data presentation, now let's get into it ...
+We all know traditional static charts and graphs are useful as infographics, but interactive visuals offer more flexibility and excitement in data science. We can zoom in on details, observe changes over time and explore data in depth ... how exciting I hear you cry! In all seriousness, if you want your data and graphs to stand out in the crowd, this is the tutorial for you! Specifically, these interactive infographics are ideal for wesbites that reach the general public as the audience. The interactive nature makes it appealing for a wider range of readers and catches their eyes. There are a range of packages we will be delving into that help you break down complex datasets into more engaging and easily understandable animated infographics. You can personalise the data to fit a particular theme, you want barbie? We can make that happen.  Overall, these are super handy packages that can help elevate your data presentation, now let's get into it ...
 
 ## 2. Setting the working directory, installing and downloading the packages 
 To execute all of these exciting interactive infographics, we need to make sure you are set up to code them. Essentially, this is the admin faff before getting into the nitty gritty code. Firstly, we need to set your working directory, then install and download the packages necessary for this tutorial. 
@@ -46,3 +46,43 @@ library(dplyr)
 library(plotly)
 library(gganimate) 
 ```
+Time to load in the data you would like to use for this tutorial ...
+```
+# Load the puffin data 
+load ("data/atlantic_puffin.csv")
+```
+
+## 3. Wrangling the data
+This is another step that adequately prepares the data for the interactive table and graphs. Currently, the puffin data is in wide format but we want it in long format, with the NAs removed and population sizes rounded, to make life easier for ourselves.  
+```
+# Data wrangling  
+# Okay, this may look scary but when you break it all down I promise it isn't so bad!
+
+puffin_data <- atlantic_puffin %>% 
+  pivot_longer (cols=25:69, names_to = "Year", values_to = "Population") %>%         # Transforms the data from wide to long format 
+  mutate (Year = parse_number(Year),                                                 # Converts the values in year to numeric                    
+          Year_Scale = Year - min(Year),                                             # Scaling the year 
+          Population = round(Population)) %>%                                        # Rounding the population values
+  filter(is.finite(Population), !is.na(Population)) %>%                              # Removing any NA values from the data
+  select (Common.Name, Region, Country.list, id, Year, Population, Year_Scale) %>%   # Selecting what columns we need in the final dataset
+
+```
+
+## 4. Creating a simple interactive table
+PHEW! All that background data wrangling is done, now we can focus on our first aim: to make a simple interactive table. 
+
+```
+# Creating a simple interactive data table 
+datatable(puffin_data,                        # This is the dataset we will be using in the table
+          options = list(                     # We want the table in a list format of data
+            pageLength = 10,                  # Each page has 10 rows of values
+            searching = TRUE,                 # We can add a searchbar
+            lengthChange = FALSE))            # We cannot change the number of rows displayed per page
+ 
+
+```
+Easy peasy! You now should have a table that looks similar to this...
+
+
+INSERT TABLE 
+
