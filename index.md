@@ -86,3 +86,4 @@ Easy peasy! You now should have a table that looks similar to this...
 
 INSERT TABLE 
 
+![image](https://github.com/user-attachments/assets/f6f4c9a6-28e0-4bdc-bf2e-6b8f6314ff65)
