@@ -83,7 +83,7 @@ datatable(puffin_data,                        # This is the dataset we will be u
 ```
 Easy peasy! You now should have a table that looks similar to this...
 
-[Interactive Table](./tutorial-emmmahouse/interactive_table.html)
+[Interactive Table](./interactive_table.html)
 
 
 INSERT TABLE 
