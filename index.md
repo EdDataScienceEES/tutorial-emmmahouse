@@ -89,3 +89,11 @@ Easy peasy! You now should have a table that looks similar to this...
 INSERT TABLE 
 
 ![image](https://github.com/user-attachments/assets/f6f4c9a6-28e0-4bdc-bf2e-6b8f6314ff65)
+
+
+## 5. Creating an interactive scatter plot
+
+- intro
+- code
+- output
+- what is logging and why do we do it ? add a text box underneath 
