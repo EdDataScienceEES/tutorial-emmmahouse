@@ -101,7 +101,3 @@ New and improved table:
 - what is logging and why do we do it ? add a text box underneath
 
 ## 6. Making an animation 
-
-
-
-<iframe "figures/interactive_scatter.html" = "https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/interactive_scatter.html" width = "800 height = "600"></iframe>
