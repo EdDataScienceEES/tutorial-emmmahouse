@@ -90,7 +90,7 @@ Easy peasy! You now should have a table that looks similar to this...
 
 New and improved table:
 
-<iframe "figures/improved_interactive_table".html ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
+<iframe "figures/improved_interactive_table.html" ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
 
 
 ## 5. Creating an interactive scatter plot
