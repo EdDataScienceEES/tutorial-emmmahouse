@@ -6,7 +6,7 @@
 
 ## Learning outcomes:
 #### 1. To understand the importance of interactive infographics for widening your audience range
-#### 2. To confidently use pakcages such as DT to produce a basic interactive tables
+#### 2. To confidently use packages such as DT to produce a basic interactive tables
 #### 3. To confidently produce interactive and animated graphs
 #### 4. To understand data patterns more efficiently and easily from interactive infographics
 
@@ -111,6 +111,18 @@ puffin_data <- atlantic_puffin %>%
 ## 4. Creating a simple interactive table
 PHEW! All that background data wrangling is done, now we can focus on our first aim: to make a *simple interactive table*. 
 
+Data tables in general, are **fundamental tools** when it comes to data analysis. They provide an excellent **oveview of the data set** without any manipulation. They are prefect for **organising data** in a manner that is **accessible** for more people. Imagine handing your mother an excel spreadsheet and then a beautiful clear table with the exact same information. She will be far more likely to engage with and understand the latter. Hopefully this emphasises the importance of tables, especially when analysing larger datasets. 
+
+Now lets take this a step further and talk about interactive tables. These let the audience **engage with the data directly**, allow them to filter through values, finding their own conclusions. It adds an element of **fun** for those who have no background in data analysis and makes the data even more accessible than it already was. 
+
+Now there are several ways to create an interactive table, different functions that can be used. In this tutorial we will cover the use of **DT** which allows a range of table features that allows customised interactions. You piece together the code based on how you would like the table to look: 
+
+i. We would like the table in a **list format**
+ii. We would like **10 rows of data per page**, otherwise it would be too overwhelming
+iii. We would like a **search bar** to aid data observations for the audience
+
+This *criteria* we have made can be easily transferred into code, specifically, into a 'list' as seen below. 
+
 
 ```
 # Creating a simple interactive data table 
@@ -129,10 +141,10 @@ Easy peasy! You now should have a table that looks similar to this...
 <iframe "figures/interactive_table.html" ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/interactive_table.html" width = "800" height = "600"></iframe>
 
 
-But we can do more adjusting to this table to make it even better ....
+But we can do more adjusting to this table to make it more professional and accessible for a wider range of audiences. Maybe we want more options to search data within the table, or to add colour certain values to observe patterns more easily.
+
 ```
-## Nice work! We now have a simple table, interactive with a search bar and 10 rows per page - pretty cool !!
-## But I want to make this look even more attractive and change the names of the columns, what more can I do...
+## Developing the data table even further ...
 
 datatable(puffin_data,                                                      # The dataset for the table 
           filter = "top",                                                   # Adds a search bar at the top of each column 
@@ -147,9 +159,21 @@ saveWidget(datatable(puffin_data), "improved_interactive_table.html") # Saving t
 
 ```
 Now you should have something that looks like this: 
-New and improved table:
 
 <iframe "figures/improved_interactive_table" ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
+
+
+Adding colour to puffin populations below thee value of 10 highlights patterns in the data more easily. We can observe that mostly puffin populations in Russia have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets of puffin data out of all the countries. Observations like this can be helpful before settling into graph making.
+
+NB. Options for interactive data tables ... 
+| Package  | Explanation          | 
+|----------|----------        |
+| DT        | Easy to use, sorts and searches larger datasets efficiently. Filters catagorical and numeric data, allowing independent sarching for users.| 
+| reactable | More modern tabling system, less feature rich than DT but more user friendly interface.|
+| formattable |Provides in cell visualisation for dataframes, adding colored scales and bars as indicators of the values in the cells |
+| flextable | Word and powerpoint compatible tables, for reports. You can add images, merge cells and apply themes. |
+
+*Please note you cannot use two of these functions for one table. Some are not compatible to work together eg DT and reactable.*
 
 
 ## 5. Creating an interactive scatter plot
