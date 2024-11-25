@@ -8,26 +8,28 @@ setwd("~/Downloads/tutorial-emmmahouse")
 # Install packages 
 install.packages("tidyverse")    # Helps us clean the data
 install.packages("DT")           # Renders the interactive tables in reports 
-install.packages("flextable")    # Helps us make attractive and formatted tables for output in word, powerpoint or HTML 
 install.packages("ggplot2")      # Helps us create the beautiful graphs
 install.packages("dplyr")        # Provides a range of functions to help manipulate data
 install.packages("plotly")       # Creates the interactive graphs, even 3D plots or geographic maps
-install.packages("gganimate")    # Adds animations to static plots, especially used with time series data
-install.packages("htmlwidgets")  
+install.packages("htmlwidgets")  # Allows us to create HTML based interactive inforgraphics
 
 
 # Download libraries 
 library(tidyverse)
 library(DT)
-library(flextable)
 library(ggplot2)
 library(dplyr)
 library(plotly)
-library(gganimate)
 library(htmlwidgets)
 
 # Load the puffin data 
 atlantic_puffin <- read.csv("data/atlantic_puffin.csv")
+
+
+
+# Data overview
+str (atlantic_puffin)
+summary (atlantic_puffin)
 
 # Data wrangling  
 # Okay, this may look scary but when you break it all down I promise it isn't so bad!
@@ -101,25 +103,6 @@ plot_ly(data = puffin_data,                                                     
                      dtick = 1))                                                                                # The difference between each tick will be log1
 
 saveWidget(plot, "improved_interactive_scatter.html") 
-
-## If we want to spice up this graph and make it more accessible for those of younger ages... we can make ANIMATIONS 
-### potentially delete this? 
-p <- ggplot(puffin_data, aes(x = year, y = population, colour = country.list))+
-  geom_point(show.legend = FALSE, alpha = 0.7)+
-  scale_color_viridis_d()+
-  scale_size(range = c(2.12))+
-  scale_y_log10() +
-  labs(x = "Years", y = "Population(Log Scale)")
-
-gif <- p +transition_time(year) +
-  labs (title = "year: {frame_time}")
-
-animate(gif)
-
-getwd()
-setwd("C:/Users/emmak/OneDrive - University of Edinburgh/year 3/DATA SCIENCE/data science github page/tutorial-emmmahouse")
-anim_save("puffin_animation.gif", animation = gif)
-  
   
   
 # If we want to take it one step further and make this graph more accessible for those of younger ages ... we can make it ANIMATED 
