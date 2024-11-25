@@ -1,4 +1,4 @@
-# Creating interactive visualisations: plotly, DT and flextable 
+# Creating interactive visualisations: DT and plotly
 #### *Created by Emma House*
 ---
 ![image](https://github.com/user-attachments/assets/cc144fed-ef51-473e-914f-99edd798a0af)
@@ -6,7 +6,7 @@
 
 ## Learning outcomes:
 #### 1. To understand the importance of interactive infographics for widening your audience range
-#### 2. To confidently use pakcages such as DT and flextable to produce a basic interactive tables
+#### 2. To confidently use pakcages such as DT to produce a basic interactive tables
 #### 3. To confidently produce interactive and animated graphs
 #### 4. To understand data patterns more efficiently and easily from interactive infographics
 
@@ -36,13 +36,12 @@ As I'm sure you know by now, the working directory is the folder where your scri
 setwd("~/Downloads/tutorial-emmmahouse")
 ```
 ##### B. Install packages and download libraries needed for the tutorial
-We install packages so we can download them, to utilise their functions whilst coding. The main packages to highlight for this tutorial are the 'DT', 'flextable', 'plotly'. These are all key to aiding the process of interactivity within coding.
+We install packages so we can download them, to utilise their functions whilst coding. The main packages to highlight for this tutorial are the 'DT' and 'plotly'. These are all key to aiding the process of interactivity within coding.
 
 ```
 # Install packages 
 install.packages("tidyverse")    # Helps us clean the data
 install.packages("DT")           # Renders the interactive tables in reports 
-install.packages("flextable")    # Helps us make attractive and formatted tables for output in word, powerpoint or HTML 
 install.packages("ggplot2")      # Helps us create the beautiful graphs
 install.packages("dplyr")        # Provides a range of functions to help manipulate data
 install.packages("plotly")       # Creates the interactive graphs, even 3D plots or geographic maps
@@ -52,7 +51,6 @@ install.packages("htmlwidgets")  # Allows us to create HTML based interactive in
 # Download libraries 
 library(tidyverse)
 library(DT)
-library(flextable)
 library(ggplot2)
 library(dplyr)
 library(plotly)
