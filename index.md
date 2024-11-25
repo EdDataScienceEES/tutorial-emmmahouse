@@ -85,12 +85,12 @@ Easy peasy! You now should have a table that looks similar to this...
 
 <iframe src="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/interactive_table.html" width = "800" height = "600"></iframe>
 
-[Interactive Table](./interactive_table.html)
 
 
-INSERT TABLE 
 
-![image](https://github.com/user-attachments/assets/f6f4c9a6-28e0-4bdc-bf2e-6b8f6314ff65)
+New and improved table:
+
+<iframe src ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
 
 
 ## 5. Creating an interactive scatter plot
