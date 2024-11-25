@@ -83,14 +83,14 @@ datatable(puffin_data,                        # This is the dataset we will be u
 ```
 Easy peasy! You now should have a table that looks similar to this...
 
-<object data="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/interactive_table.html" width = "800" height = "600"></object>
+<iframe "figures/interactive_table.html" ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/interactive_table.html" width = "800" height = "600"></iframe>
 
 
 
 
 New and improved table:
 
-<object data="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/improved_interactive_table.html" width = "800" height = "600"></object>
+<iframe "figures/improved_interactive_table" ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
 
 
 ## 5. Creating an interactive scatter plot
