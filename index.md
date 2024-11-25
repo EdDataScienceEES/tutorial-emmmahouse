@@ -19,7 +19,7 @@
 ** In this tutorial we will be using data from this repository. Click on this link to download the Puffin data used to follow the tutorial directly, or use your own data. **
 
 ## 1. Introducing the importance of interactive visualisations 
-We all know traditional static charts and graphs are useful as infographics, but interactive visuals offer more flexibility and excitement in data science. We can zoom in on details, observe changes over time and explore data in depth ... how exciting I hear you cry! In all seriousness, if you want your data and graphs to stand out in the crowd, this is the tutorial for you! Specifically, these interactive infographics are ideal for wesbites that reach the general public as the audience. The interactive nature makes it appealing for a wider range of readers and catches their eyes. There are a range of packages we will be delving into that help you break down complex datasets into more engaging and easily understandable animated infographics. You can personalise the data to fit a particular theme, you want barbie? We can make that happen.  Overall, these are super handy packages that can help elevate your data presentation, now let's get into it ...
+We all know traditional static charts and graphs are useful as infographics, but interactive visuals offer more flexibility and excitement in data science. We can zoom in on details, observe changes over time and explore data in depth ... how exciting I hear you cry! In all seriousness, if you want your data and graphs to stand out in the crowd, this is the tutorial for you! These interactive infographics are ideal for wesbites that reach out to the general public as the audience. The interactive nature makes it appealing for a wider range of readers. If you are interested in careers associated with public engagment and data science, these are the most engaging graphs to help you out. There are a range of packages we will be delving into that help you break down complex datasets into more engaging and easily understandable animated infographics. You can personalise the data to fit a particular theme, you want barbie? We can make that happen.  Overall, these are super handy packages that can help elevate your data presentation, now let's get into it ...
 
 ## 2. Setting the working directory, installing and downloading the packages 
 To execute all of these exciting interactive infographics, we need to make sure you are set up to code them. Essentially, this is the admin faff before getting into the nitty gritty code. Firstly, we need to set your working directory, then install and download the packages necessary for this tutorial. 
@@ -83,7 +83,19 @@ datatable(puffin_data,                        # This is the dataset we will be u
 ```
 Easy peasy! You now should have a table that looks similar to this...
 
+[Interactive Table](./interactive_table.html)
+
 
 INSERT TABLE 
 
 ![image](https://github.com/user-attachments/assets/f6f4c9a6-28e0-4bdc-bf2e-6b8f6314ff65)
+
+
+## 5. Creating an interactive scatter plot
+
+- intro
+- code
+- output
+- what is logging and why do we do it ? add a text box underneath
+
+## 6. Making an animation 
