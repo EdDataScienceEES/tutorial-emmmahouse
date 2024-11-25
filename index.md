@@ -2,11 +2,13 @@
 #### *Created by Emma House*
 ---
 ![image](https://github.com/user-attachments/assets/cc144fed-ef51-473e-914f-99edd798a0af)
+*Credits: WWF*
 
 ## Learning outcomes:
-#### 1. To produce an interactive table 
-#### 2. To produce a basic interactive graph
-#### 3. To produce an animated graph 
+#### 1. To understand the importance of interactive infographics for widening your audience range
+#### 2. To confidently use pakcages such as DT and flextable to produce a basic interactive tables
+#### 3. To confidently produce interactive and animated graphs
+#### 4. To understand data patterns more efficiently and easily from interactive infographics
 
 ## Tutorial aims: 
 1. Introducing the importance of interactive visualisations
@@ -64,6 +66,7 @@ The data used below is a segment of the dataset from Living Planet Index - a fre
 atlantic_puffin <- read.csv("data/atlantic_puffin.csv")
 ```
 ![image](https://github.com/user-attachments/assets/ebebbc96-5487-4a3c-ad1c-2adf6daba4ec)
+*Credits: WWF*
 
 ## 3. Wrangling the data
 This is another step that adequately prepares the data for the interactive table and graphs. Let's have a look at the layout and structure of this dataset. 
@@ -74,6 +77,22 @@ str (atlantic_puffin)
 summary (atlantic_puffin)
 ```
 So we have different populations of Atlantic Puffins across different countries that have been measured over the years. Each population measured has it's own id, which is tracked over years. Currently, the puffin data is in wide format but we want it in long format, with the NAs removed and population sizes rounded, to make life easier for ourselves when we begin to plot graphs. When opening the dataset, you can see there are characters mixed with the numeric years eg X1982, thus we will aim to remove the X to make life easier for ourselves. Moreover, when making this new dataset, we do not need to use all of the original columns, eg the family, genus and species are unnecessary when we know all the species we are looking at are Atlantic Puffins. Therefore we can select the columns we would like for future manipulation - making future data manipulations that much easier down the line. 
+
+Some of the most important packages for data wrangling include: 
+
+
+| Function | Meaning          | 
+|----------|----------        |
+| pivot        | Allows you to create a new column| 
+| mutate | Allows you to edit non numeric characters from values|
+| parse_number | Allows you to reshape data from long format to wide format |
+| filter | Allows you to select rows that meet specific conditions |
+| select | Allows you to choose which columns you would like to keep in a new dataset |
+| rename | Allows you change the name(s) of columns |
+
+
+If you are wrangling your own data, see if you can try and use these functions. If you are struggling, Coding Club do some [excellent tutorials](https://ourcodingclub.github.io/tutorials/data-manip-intro/) on data manipulation to help you along. 
+
 
 ```
 # Data wrangling  
