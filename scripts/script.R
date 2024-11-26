@@ -57,7 +57,7 @@ saveWidget(datatable(puffin_data), "interactive_table.html")   # Saving the inte
 ## Nice work! We now have a simple table, interactive with a search bar and 10 rows per page - pretty cool !!
 ## But I want to make this look even more attractive and change the names of the columns, what more can I do...
 
-datatable(puffin_data,                                                      # The dataset for the table 
+improved_table <- datatable(puffin_data,                                                      # The dataset for the table 
           filter = "top",                                                   # Adds a search bar at the top of each column 
             options = list(                                                 # We want the table in a list format of data
               pageLength = 10,                                              # Each page has 10 rows of values
@@ -66,10 +66,10 @@ datatable(puffin_data,                                                      # Th
   formatStyle ('population',                                                # Formatting the population column
                backgroundColor = styleInterval(10, c('red', 'white')))      # Adding colour red to any population values below 10
 
-saveWidget(datatable(puffin_data), "improved_interactive_table.html") # Saving the improved interactive table to a HTML file
+saveWidget(improved_table, "improved_interactive_table.html")               # Saving the improved interactive table to a HTML file
 
 # Creating a basic interactive scatter plot 
-plot_ly(data = puffin_data,                   # Using the puffin data
+plot <- plot_ly(data = puffin_data,                   # Using the puffin data
         x = ~year,                            # Year on the x axis
         y = ~population,                      # Population size on the y axis
         color = ~country.list,                # Each country has a new colour 
@@ -82,7 +82,7 @@ saveWidget(plot, "interactive_scatter.html")
 # Let's try and log the populations to help observe more patterns in the data.
 # Whilst we are at it, we can make some further adjustments ... 
 
-plot_ly(data = puffin_data,                                                                                     # Using the puffin data
+improved_plot <- plot_ly(data = puffin_data,                                                                                     # Using the puffin data
         x = ~year,                                                                                              # Year on the x axis
         y = ~log(population),                                                                                   # The logged population size on the y axis
         color = ~country.list,                                                                                  # Each country has a new colour 
@@ -102,7 +102,7 @@ plot_ly(data = puffin_data,                                                     
                      tickmode = "linear",                                                                       # Ticks on the y axis will be uniformly spread out
                      dtick = 1))                                                                                # The difference between each tick will be log1
 
-saveWidget(plot, "improved_interactive_scatter.html") 
+saveWidget(improved_plot, "improved_interactive_scatter.html") 
   
   
 # If we want to take it one step further and make this graph more accessible for those of younger ages ... we can make it ANIMATED 
