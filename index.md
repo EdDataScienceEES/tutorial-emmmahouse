@@ -117,9 +117,9 @@ Now lets take this a step further and talk about interactive tables. These let t
 
 Now there are several ways to create an interactive table, different functions that can be used. In this tutorial we will cover the use of **DT** which allows a range of table features that allows customised interactions. You piece together the code based on how you would like the table to look: 
 
-i. We would like the table in a **list format**
-ii. We would like **10 rows of data per page**, otherwise it would be too overwhelming
-iii. We would like a **search bar** to aid data observations for the audience
+i. We would like the table in a **list format**\
+ii. We would like **10 rows of data per page**, otherwise it would be too overwhelming\
+iii. We would like a **search bar** to aid data observations for the audience\
 
 This *criteria* we have made can be easily transferred into code, specifically, into a 'list' as seen below. 
 
@@ -141,7 +141,11 @@ Easy peasy! You now should have a table that looks similar to this...
 <iframe src ="figures/interactive_table.html" width = "800" height = "600"></iframe>
 
 
-But we can do more adjusting to this table to make it more professional and accessible for a wider range of audiences. Maybe we want more options to search data within the table, or to add colour certain values to observe patterns more easily.
+
+But we can do more adjusting to this table to make it more **professional and accessible** for a wider range of audiences. Maybe we want more options to search data within the table, or to add colour certain values to observe patterns more easily. 
+
+These are simple edits to the code using *'filter = "top"'* to adjust the search bars and *'formatStyle'* to add in a pop of colour to your chosen values. We want the population values to come up in colour, so we select the 'population' within the formatStyle function. *'styleInterval'* is the function required for defining the colour scheme for the values in the columns and your chosen number eg *'10'* will be the breakpoint. This means the first colour chosen, *'red'* will be used for values below 10 and the latter colour will be for those values after 10. So, say we wanted all colours after 10 to be green, we can simply change the code from *'white'* to *'green'*, as you will see below. This is a fantastic tool for sorting data into catagories - here we can easily see the worryingly low puffin populations as they are coloured in red. 
+
 
 ```
 ## Developing the data table even further ...
@@ -163,9 +167,9 @@ Now you should have something that looks like this:
 <iframe src ="figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
 
 
-Adding colour to puffin populations below thee value of 10 highlights patterns in the data more easily. We can observe that mostly puffin populations in Russia have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets of puffin data out of all the countries. Observations like this can be helpful before settling into graph making.
+Adding colour to puffin populations below the value of 10 highlights patterns in the data more easily. We can observe that mostly puffin populations in Russia have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets for puffins out of all the countries. Observations like this can be helpful before settling into graph making.
 
-NB. Options for interactive data tables ... 
+NB. Here are some further options for interactive data tables ... 
 
 | Package     | Explanation                                                                                                                                | 
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
