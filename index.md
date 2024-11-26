@@ -167,8 +167,8 @@ Adding colour to puffin populations below thee value of 10 highlights patterns i
 
 NB. Options for interactive data tables ... 
 | Package  | Explanation          | 
-|----------|----------        |
-| DT        | Easy to use, sorts and searches larger datasets efficiently. Filters catagorical and numeric data, allowing independent sarching for users.| 
+|----------|----------------------|
+| DT       | Easy to use, sorts and searches larger datasets efficiently. Filters catagorical and numeric data, allowing independent sarching for users.| 
 | reactable | More modern tabling system, less feature rich than DT but more user friendly interface.|
 | formattable |Provides in cell visualisation for dataframes, adding colored scales and bars as indicators of the values in the cells |
 | flextable | Word and powerpoint compatible tables, for reports. You can add images, merge cells and apply themes. |
