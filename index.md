@@ -136,7 +136,10 @@ saveWidget(datatable(puffin_data), "interactive_table.html")   # Saving the inte
 
 
 ```
+
+
 Easy peasy! You now should have a table that looks similar to this...
+
 
 <iframe src ="figures/interactive_table.html" width = "800" height = "600"></iframe>
 
@@ -148,7 +151,9 @@ These are simple edits to the code using *'filter = "top"'* to adjust the search
 
 
 ```
+
 ## Developing the data table even further ...
+
 
 datatable(puffin_data,                                                      # The dataset for the table 
           filter = "top",                                                   # Adds a search bar at the top of each column 
@@ -167,9 +172,12 @@ Now you should have something that looks like this:
 <iframe src ="figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
 
 
+
 Adding colour to puffin populations below the value of 10 highlights patterns in the data more easily. We can observe that mostly puffin populations in Russia have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets for puffins out of all the countries. Observations like this can be helpful before settling into graph making.
 
+
 NB. Here are some further options for interactive data tables ... 
+
 
 | Package     | Explanation                                                                                                                                | 
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
