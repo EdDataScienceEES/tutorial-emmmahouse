@@ -138,7 +138,8 @@ saveWidget(datatable(puffin_data), "interactive_table.html")   # Saving the inte
 ```
 
 
-Easy peasy! You now should have a table that looks similar to this...
+Easy peasy! You now should have a table that looks similar to this...  
+
 
 
 <iframe src ="figures/interactive_table.html" width = "800" height = "600"></iframe>
