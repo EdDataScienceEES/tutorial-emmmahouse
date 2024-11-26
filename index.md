@@ -6,7 +6,7 @@
 
 ## Learning outcomes:
 #### 1. To understand the importance of interactive infographics for widening your audience range
-#### 2. To confidently use packages such as DT to produce a basic interactive tables
+#### 2. To confidently use packages such as DT to produce a basic interactive table
 #### 3. To confidently produce interactive and animated graphs
 #### 4. To understand data patterns more efficiently and easily from interactive infographics
 
@@ -89,7 +89,7 @@ Some of the **most important packages** for data wrangling include:
 | rename | Allows you change the name(s) of columns |
 
 
-If you are wrangling your own data, see if you can try and use these functions. If you are struggling, Coding Club do some [excellent tutorials](https://ourcodingclub.github.io/tutorials/data-manip-intro/) on data manipulation to help you along. 
+If you are wrangling your own data, see if you can try and use these functions. If you are struggling, Coding Club do some [excellent tutorials](https://ourcodingclub.github.io/tutorials/data-manip-intro/) on data manipulation to help you along or to jog your memory of what further functions can be applied. 
 
 
 ```
