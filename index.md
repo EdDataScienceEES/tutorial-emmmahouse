@@ -138,7 +138,7 @@ saveWidget(datatable(puffin_data), "interactive_table.html")   # Saving the inte
 ```
 Easy peasy! You now should have a table that looks similar to this...
 
-<iframe "figures/interactive_table.html" ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/interactive_table.html" width = "800" height = "600"></iframe>
+<iframe src ="figures/interactive_table.html" width = "800" height = "600"></iframe>
 
 
 But we can do more adjusting to this table to make it more professional and accessible for a wider range of audiences. Maybe we want more options to search data within the table, or to add colour certain values to observe patterns more easily.
@@ -160,7 +160,7 @@ saveWidget(datatable(puffin_data), "improved_interactive_table.html") # Saving t
 ```
 Now you should have something that looks like this: 
 
-<iframe "figures/improved_interactive_table" ="https://github.com/EdDataScienceEES/tutorial-emmmahouse/blob/master/figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
+<iframe src ="figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
 
 
 Adding colour to puffin populations below thee value of 10 highlights patterns in the data more easily. We can observe that mostly puffin populations in Russia have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets of puffin data out of all the countries. Observations like this can be helpful before settling into graph making.
