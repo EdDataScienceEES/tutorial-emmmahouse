@@ -160,7 +160,7 @@ saveWidget(datatable(puffin_data), "improved_interactive_table.html") # Saving t
 ```
 Now you should have something that looks like this: 
 
-<iframe src ="figures/improved_interactive_table.html" width = "800" height = "600"></iframe>
+<iframe src ="figures/improved_interactive_scatter.html" width = "800" height = "600"></iframe>
 
 
 Adding colour to puffin populations below thee value of 10 highlights patterns in the data more easily. We can observe that mostly puffin populations in Russia have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets of puffin data out of all the countries. Observations like this can be helpful before settling into graph making.
@@ -175,6 +175,15 @@ NB. Options for interactive data tables ...
 
 *Please note you cannot use two of these functions for one table. Some are not compatible to work together eg DT and reactable.*
 
+
+| Function | Meaning          | 
+|----------|----------        |
+| pivot        | Allows you to create a new column| 
+| mutate | Allows you to edit non numeric characters from values|
+| parse_number | Allows you to reshape data from long format to wide format |
+| filter | Allows you to select rows that meet specific conditions |
+| select | Allows you to choose which columns you would like to keep in a new dataset |
+| rename | Allows you change the name(s) of columns |
 
 ## 5. Creating an interactive scatter plot
 
