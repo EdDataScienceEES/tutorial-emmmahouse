@@ -166,12 +166,12 @@ Now you should have something that looks like this:
 Adding colour to puffin populations below thee value of 10 highlights patterns in the data more easily. We can observe that mostly puffin populations in Russia have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets of puffin data out of all the countries. Observations like this can be helpful before settling into graph making.
 
 NB. Options for interactive data tables ... 
-| Package   | Explanation                                                                                                                                | 
-|-----------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| DT        | Easy to use, sorts and searches larger datasets efficiently. Filters catagorical and numeric data, allowing independent sarching for users.| 
-| reactable | More modern tabling system, less feature rich than DT but more user friendly interface.                                                   |
-| formattable |Provides in cell visualisation for dataframes, adding colored scales and bars as indicators of the values in the cells                   |
-| flextable | Word and powerpoint compatible tables, for reports. You can add images, merge cells and apply themes.                                     |
+| Package     | Explanation                                                                                                                                | 
+|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| DT          | Easy to use, sorts and searches larger datasets efficiently. Filters catagorical and numeric data, allowing independent sarching for users.| 
+| reactable   | More modern tabling system, less feature rich than DT but more user friendly interface.                                                    |
+| formattable | Provides in cell visualisation for dataframes, adding colored scales and bars as indicators of the values in the cells                     |
+| flextable   | Word and powerpoint compatible tables, for reports. You can add images, merge cells and apply themes.                                      |
 
 *Please note you cannot use two of these functions for one table. Some are not compatible to work together eg DT and reactable.*
 
