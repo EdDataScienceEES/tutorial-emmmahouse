@@ -1,4 +1,4 @@
-# Creating interactive visualisations: DT and plotly
+# Creating interactive visualisations: DT and plotly 
 #### *Created by Emma House*
 ---
 ![image](https://github.com/user-attachments/assets/cc144fed-ef51-473e-914f-99edd798a0af)
@@ -174,7 +174,7 @@ Now you should have something that looks like this:
 
 
 
-Adding colour to puffin populations below the value of 10 highlights patterns in the data more easily. We can observe that mostly puffin populations in Canada and Russia have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets for puffins out of all the countries. Observations like this can be helpful before settling into graph making.
+Adding **colour** to puffin populations **below the value of 10** highlights patterns in the data more easily. We can observe that mostly puffin populations in **Canada and Russia** have lower levels, as they show up in red. We can also see after skimming through the data, that Russia has one of the largest sets for puffins out of all the countries. Observations like this can be helpful before settling into graph making.
 
 
 NB. Here are some further options for interactive data tables ... 
@@ -192,9 +192,9 @@ NB. Here are some further options for interactive data tables ...
 For more information on graphs, [this website](https://medium.com/number-around-us/data-at-your-fingertips-crafting-interactive-tables-in-r-b4ae5ca7a71d#:~:text=Adding%20features%20like%20sorting%2C%20filtering,can%20make%20their%20own%20discoveries) is super handy at overviewing the different customisations you can get through different packages. 
 
 ## 5. Creating an interactive scatter plot
-Before we think about plotting we need to distinguish a research question - what are we aiming to show on this graph? We have puffin populations, countries, years and much more - an interesting question might be to look at how these puffin populations are changing over time across different countries. WWF have reported a decline in puffin populations, with invasive species on the rise and food shortages. This makes our research question significant and a good investigation to display to the public to raise awareness of their threatened status. As previously mentioned, bringing graphs to life is an excellent way to engage with a wider audience - and this is the perfect opportunity to do so. Let's see what plot_ly can do...
+Before we think about plotting we need to distinguish a research question - what are we aiming to show on this graph? We have puffin populations, countries, years and much more - an interesting question might be to look at *how these puffin populations are changing over time across different countries*. WWF have reported a **decline in puffin populations**, with invasive species on the rise and food shortages. This makes our research question significant and a good investigation to display to the public to raise awareness of their threatened status. As previously mentioned, bringing graphs to life is an excellent way to *engage with a wider audience* - and this is the perfect opportunity to do so. Let's see what plotly can do...
 
-Plotly is the perfect packages for plotting interactive charts. You can easily turn a static ggplot2 into an interactive one with only a few simple edits to the code! Instead of ggplot, we use plot_ly, inputting the data as we usually do and defining the x and y axis variables. We add a '~' before the variables we want to plot on the graph, to reference the column from the puffin_data dataset, define the type of graph and the design of the datapoints on the graph. The interactive features include hover effects, sliders and buttons - all super cool techniques to captivate the audience. 
+Plotly is the perfect packages for creating interactive charts. You can easily turn a static ggplot2 into an interactive one with only a few simple edits to the code! Instead of ggplot, we use plot_ly, inputting the data as we usually do and defining the x and y axis variables. We add a '~' before the variables we want to plot on the graph, to reference the column from the puffin_data dataset. We also need to define the type of graph and the design of the datapoints on the graph. The interactive features include **hover effects, sliders and buttons** - all super cool techniques to captivate the audience. 
 
 As we are investigating the puffin populations over time across different countries, the independent variable on the x axis will be the years, whilst the dependent variable is the puffin population sizes on the y axis. Meanwhile, we can distribute colours for each country, to visually observe the differences across the world. 
 
@@ -214,10 +214,10 @@ So what does this look like? Well, you should have something that looks a little
 
 <iframe src ="figures/interactive_scatter.html" width = "800" height = "600"></iframe>
 
-But this looks a little ... odd. That one point in Norway, 1979, is skewing the data so we can't see the patterns as clearly. Let's try and log the populations to help observe more patterns in the data. 
+But this looks a little ... odd. That one point in Norway, 1979, is **skewing the data** so we can't see the patterns as clearly. Let's try and log the populations to help observe more patterns in the data. 
 
 *What is logging data and why do we do it, I hear you cry!*
-Log transformation is a data transformation technique, usually used when the original data is skewed or does not follow a normal distribution pattern. Each variable x is replaced with log(x) - so they represent the same values in relation to one another but instead on a log scale, so the graph would be easier to read and patterns easier to define. It makes our lives a whole lot easier, as you can clearly see the difference between the graph above, and the graph below. 
+Log transformation is a **data transformation technique**, usually used when the original data is skewed or does not follow a normal distribution pattern. Each variable x is replaced with log(x) - so they represent the same values in relation to one another but instead on a log scale, so the graph would be **easier to read and patterns easier to define**. It makes our lives a whole lot easier, as you can clearly see the difference between the graph above, and the graph below. 
 
 We can also make some further adjustments to the graph to improve presentation. 
 
@@ -241,14 +241,14 @@ linecolor = 'black' # Ensures axis lines are black
 ```
 We can also create a title for the graph and edit the axis labels. You may be getting deja vu, because this is the same code for a ggplot - if you are struggling with these, head to coding club's tutorial on (creating graphs with ggplot)[https://ourcodingclub.github.io/tutorials/datavis/].
 
-Now, I have added a little extra to the end of the code so the ticks on the y axis are more even. 
-Logging layout on the y axis. 
+Now, I have added a little extra to the end of the code so the ticks on the y axis are more even, after the logging. *tickmode* and *dtick* are useful settings to control the appearance of ticks on an axis. Tickmode can be adjusted to linear, array or auto, depending on the dataset you have. Linear results in regular intervals for the ticks, array allows you to choose the positioning of the ticks at specific values and auto plot the ticks automatically. *dtick* defines the spacing between the ticks, so below is an example of log(1) spacing, as the y axis is the logged population. 
 
+```
+tickmode = "linear",
+dtick = 1
+``` 
 
-
-
-
-If we combine all these features, we get this code: 
+If we combine all these new features, we get this code: 
 ``` 
 improved_plot <- plot_ly(data = puffin_data,                                                                                     # Using the puffin data
         x = ~year,                                                                                              # Year on the x axis
@@ -273,14 +273,21 @@ improved_plot <- plot_ly(data = puffin_data,                                    
 saveWidget(improved_plot, "improved_interactive_scatter.html") 
   ```
 
-improved ...
+The improved graph looks a lot better and we can see the different puffin population patterns more clearly. Although it appears many of the populations are fairly stable over the years, it is key to remember each country has a different number of population datasets, decreasing the reliability of these conclusions. 
 
 <iframe src ="figures/improved_interactive_scatter.html" width = "800" height = "600"></iframe>
 
 ## 6. Making an animation 
+Amazing! We are nearly at the end now - you have successfully made an interactive table, interactive graph and learnt further tips along the way about different functions and packages that can also be used for similar results. To end this tutorial, we are going to attempt an animated plot, which can also be made with a package called gganimate, although it can also be made with plot_ly!
+
+The only difference to the code for an animation is follows: 
+```
+frame =~year
+```
+This is the key animated feature, that allows the graph and data points to transition through different frames with years. Without the frame stated, this would be a static plot. 
+
 
 ```
-# If we want to take it one step further and make this graph more accessible for those of younger ages ... we can make it ANIMATED 
 # We only need to add a few extra lines, as displayed: 
 
 animated_plot <- puffin_data %>%                                                        
@@ -309,5 +316,6 @@ animated_plot
 saveWidget(animated_plot, "puffin_animated_plot.html") 
 
 ```
+This is the finished product! More mouse interactions to draw in the audience. 
 
 <iframe src ="figures/puffin_animated_plot.html" width = "800" height = "600"></iframe>
