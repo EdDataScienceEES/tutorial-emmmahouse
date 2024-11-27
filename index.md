@@ -189,13 +189,57 @@ NB. Here are some further options for interactive data tables ...
 
 *Please note you cannot use two of these functions for one table. Some are not compatible to work together eg DT and reactable.*
 
+For more information on graphs, [this website](https://medium.com/number-around-us/data-at-your-fingertips-crafting-interactive-tables-in-r-b4ae5ca7a71d#:~:text=Adding%20features%20like%20sorting%2C%20filtering,can%20make%20their%20own%20discoveries) is super handy at overviewing the different customisations you can get through different packages. 
 
 ## 5. Creating an interactive scatter plot
+
 
 - intro
 - code
 - output
+
+  
+```
+# Creating a basic interactive scatter plot 
+plot <- plot_ly(data = puffin_data,                   # Using the puffin data
+        x = ~year,                            # Year on the x axis
+        y = ~population,                      # Population size on the y axis
+        color = ~country.list,                # Each country has a new colour 
+        type = 'scatter',                     # Type of graph is scatter plot 
+        mode = 'markers')                     # Each data point will be marked
+
+saveWidget(plot, "interactive_scatter.html") 
+
+# This looks a little ... odd. That one point in Norway, 1979, is skewing the data so we can't see the patterns as clearly.
+# Let's try and log the populations to help observe more patterns in the data.
+# Whilst we are at it, we can make some further adjustments ... 
+
+improved_plot <- plot_ly(data = puffin_data,                                                                                     # Using the puffin data
+        x = ~year,                                                                                              # Year on the x axis
+        y = ~log(population),                                                                                   # The logged population size on the y axis
+        color = ~country.list,                                                                                  # Each country has a new colour 
+        text = ~paste("Country:", country.list, "<br>Population:", population),                                 # The text shown when mouse hovers over data point 
+        type = 'scatter',                                                                                       # Type of graph is scatter plot 
+        mode = 'markers') %>%                                                                                   # Each data point will be marked
+  layout(title = "Atlantic Puffin population over the years in different countries",                            # Title of the graph  
+         xaxis = list(title = "Years",                                                                          # X axis title 
+                     showgrid = FALSE,                                                                          # Removing the x axis gridlines
+                     zeroline = TRUE,                                                                           # Keeping the x axis line 
+                     linecolor = 'black'),                                                                      # Ensuring x axis line is black 
+        yaxis = list(title = "Population (Log Scale)",                                                          # y axis title  
+                     type = "log",                                                                              # Logging the y axis 
+                     showgrid = FALSE,                                                                          # Removing the y axis gridlines
+                     zeroline = TRUE,                                                                           # Keeping the y axis line             
+                     linecolor = 'black',                                                                       # Ensuring y axis line is black 
+                     tickmode = "linear",                                                                       # Ticks on the y axis will be uniformly spread out
+                     dtick = 1))                                                                                # The difference between each tick will be log1
+
+saveWidget(improved_plot, "improved_interactive_scatter.html") 
+  ```
+
 - what is logging and why do we do it ? add a text box underneath
+
+
 <iframe src ="figures/interactive_scatter.html" width = "800" height = "600"></iframe>
 
 improved ...
