@@ -233,11 +233,15 @@ text = ~country,
 ```
 This presents only the name of the country when hovering over a point. 
 
-To make this graph look more professional, we can remove the gridlines and emphasise the clean axis lines, to create a clear graph. 
+To make this graph look more professional, we can remove the gridlines and emphasise the clean axis lines, to create a clear graph. With a line of code to represent each of these points. 
+```
+showgrid = FALSE, # Removes gridlines
+zeroline = TRUE,  # Retains the axis lines
+linecolor = 'black' # Ensures axis lines are black
+```
+We can also create a title for the graph and edit the axis labels. You may be getting deja vu, because this is the same code for a ggplot - if you are struggling with these, head to coding club's tutorial on (creating graphs with ggplot)[https://ourcodingclub.github.io/tutorials/datavis/].
 
-
-Adding edited axis labels and title, 
-
+Now, I have added a little extra to the end of the code so the ticks on the y axis are more even. 
 Logging layout on the y axis. 
 
 
@@ -246,7 +250,6 @@ Logging layout on the y axis.
 
 If we combine all these features, we get this code: 
 ``` 
-
 improved_plot <- plot_ly(data = puffin_data,                                                                                     # Using the puffin data
         x = ~year,                                                                                              # Year on the x axis
         y = ~log(population),                                                                                   # The logged population size on the y axis
