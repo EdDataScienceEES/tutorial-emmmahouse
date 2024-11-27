@@ -192,16 +192,15 @@ NB. Here are some further options for interactive data tables ...
 For more information on graphs, [this website](https://medium.com/number-around-us/data-at-your-fingertips-crafting-interactive-tables-in-r-b4ae5ca7a71d#:~:text=Adding%20features%20like%20sorting%2C%20filtering,can%20make%20their%20own%20discoveries) is super handy at overviewing the different customisations you can get through different packages. 
 
 ## 5. Creating an interactive scatter plot
+Before we think about plotting we need to distinguish a research question - what are we aiming to show on this graph? We have puffin populations, countries, years and much more - an interesting question might be to look at how these puffin populations are changing over time across different countries. WWF have reported a decline in puffin populations, with invasive species on the rise and food shortages. This makes our research question significant and a good investigation to display to the public to raise awareness of their threatened status. As previously mentioned, bringing graphs to life is an excellent way to engage with a wider audience - and this is the perfect opportunity to do so. Let's see what plot_ly can do...
 
+Plotly is the perfect packages for plotting interactive charts. You can easily turn a static ggplot2 into an interactive one with only a few simple edits to the code! Instead of ggplot, we use plot_ly, inputting the data as we usually do and defining the x and y axis variables. We add a '~' before the variables we want to plot on the graph, to reference the column from the puffin_data dataset, define the type of graph and the design of the datapoints on the graph. The interactive features include hover effects, sliders and buttons - all super cool techniques to captivate the audience. 
 
-- intro
-- code
-- output
+As we are investigating the puffin populations over time across different countries, the independent variable on the x axis will be the years, whilst the dependent variable is the puffin population sizes on the y axis. Meanwhile, we can distribute colours for each country, to visually observe the differences across the world. 
 
-  
 ```
 # Creating a basic interactive scatter plot 
-plot <- plot_ly(data = puffin_data,                   # Using the puffin data
+plot <- plot_ly(data = puffin_data,           # Using the puffin data
         x = ~year,                            # Year on the x axis
         y = ~population,                      # Population size on the y axis
         color = ~country.list,                # Each country has a new colour 
@@ -209,10 +208,19 @@ plot <- plot_ly(data = puffin_data,                   # Using the puffin data
         mode = 'markers')                     # Each data point will be marked
 
 saveWidget(plot, "interactive_scatter.html") 
+```
+So what does this look like? Well, you should have something that looks a little bit like this: 
 
-# This looks a little ... odd. That one point in Norway, 1979, is skewing the data so we can't see the patterns as clearly.
-# Let's try and log the populations to help observe more patterns in the data.
-# Whilst we are at it, we can make some further adjustments ... 
+
+<iframe src ="figures/interactive_scatter.html" width = "800" height = "600"></iframe>
+
+But this looks a little ... odd. That one point in Norway, 1979, is skewing the data so we can't see the patterns as clearly. Let's try and log the populations to help observe more patterns in the data. 
+
+Why do we log data, I hear you cry! 
+
+Whilst we are at it, we can make some further adjustments ... 
+
+``` 
 
 improved_plot <- plot_ly(data = puffin_data,                                                                                     # Using the puffin data
         x = ~year,                                                                                              # Year on the x axis
@@ -236,11 +244,6 @@ improved_plot <- plot_ly(data = puffin_data,                                    
 
 saveWidget(improved_plot, "improved_interactive_scatter.html") 
   ```
-
-- what is logging and why do we do it ? add a text box underneath
-
-
-<iframe src ="figures/interactive_scatter.html" width = "800" height = "600"></iframe>
 
 improved ...
 
