@@ -14,10 +14,10 @@
 1. Introducing the importance of interactive visualisations
 2. Background checks
 3. Wrangling the data
-4. Form a well presented interactive table
-5. Produce a graph
-6. Making this graph interactive
-7. Using this graph to make an animation
+4. Creating a simple interactive table 
+5. Creating an interactive scatter plot
+6. Making an animation 
+7. Summary
 
 **In this tutorial we will be using data from [this repository](https://github.com/EdDataScienceEES/tutorial-emmmahouse.git). Click on that link too access the repository and download the Puffin data used to follow the tutorial directly, or use your own data.**
 
@@ -216,7 +216,7 @@ So what does this look like? Well, you should have something that looks a little
 
 But this looks a little ... odd. That one point in Norway, 1979, is **skewing the data** so we can't see the patterns as clearly. Let's try and log the populations to help observe more patterns in the data. 
 
-*What is logging data and why do we do it, I hear you cry!*
+*What is logging data and why do we do it, I hear you cry!*\
 Log transformation is a **data transformation technique**, usually used when the original data is skewed or does not follow a normal distribution pattern. Each variable x is replaced with log(x) - so they represent the same values in relation to one another but instead on a log scale, so the graph would be **easier to read and patterns easier to define**. It makes our lives a whole lot easier, as you can clearly see the difference between the graph above, and the graph below. 
 
 We can also make some further adjustments to the graph to improve presentation. 
@@ -321,3 +321,26 @@ This is the finished product! More mouse interactions to draw in the audience, s
 
 
 
+Although this animation is complicated to follow with all the populations from different countries, it still displays the intended investigation: how have puffin populations shifted over time in different countries. Each population, each data point, was not measured in every year across the x axis, making it difficult to follow. However, it seems that a few populations have seen a decrease in Russia, whilst the rest have fluctuated but remained somewhat stable.
+
+## 7. Summary 
+
+We have reached the end of the tutorial - congratulations !! Hopefully you have learnt: 
+a. the power and importance of data presentation, especially catering toward your specific audience 
+b. how to add simple extra lines of code to produce an interactive table or graph 
+c. the importance of logging data when it is skewed
+d. further packages that can be used for similar outputs
+e. how to create a simple animation that can be built upon through simple edits
+
+If you have any questions or feedback on this tutorial, feel free to contact me at s2347885@ed.ac.uk !  
+
+**References used for this tutorial:**
+If you need more help on any of the tutorial, visit these links that helped make this tutorial !
+
+[Creating interactive visualisations in R](https://ladal.edu.au/motion.html#1_Basic_Interactive_Graphs)
+
+[How to create interactive visualisations in R](https://www.kdnuggets.com/how-to-create-interactive-visualizations-in-r#:~:text=Traditional%20static%20charts%20are%20useful,like%20tables%2C%20charts%20and%20maps)
+
+[Formatting ticks in python](https://plotly.com/python/tick-formatting/#tickmode--linear)
+
+[Log transformation: purpose and interpretation](https://medium.com/@kyawsawhtoon/log-transformation-purpose-and-interpretation-9444b4b049c9#:~:text=It%20makes%20our%20skewed%20original,coefficients%20of%20log%2Dtransformed%20variables.)
