@@ -344,3 +344,7 @@ If you need more help on any of the tutorial, visit these links that helped make
 [Formatting ticks in python](https://plotly.com/python/tick-formatting/#tickmode--linear)
 
 [Log transformation: purpose and interpretation](https://medium.com/@kyawsawhtoon/log-transformation-purpose-and-interpretation-9444b4b049c9#:~:text=It%20makes%20our%20skewed%20original,coefficients%20of%20log%2Dtransformed%20variables.)
+
+[WWF](https://www.wwf.org.uk/learn/fascinating-facts/puffins)
+
+[Living planet index data](https://www.livingplanetindex.org/)
