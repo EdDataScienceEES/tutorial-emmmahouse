@@ -216,10 +216,35 @@ So what does this look like? Well, you should have something that looks a little
 
 But this looks a little ... odd. That one point in Norway, 1979, is skewing the data so we can't see the patterns as clearly. Let's try and log the populations to help observe more patterns in the data. 
 
-Why do we log data, I hear you cry! 
+*What is logging data and why do we do it, I hear you cry!*
+Log transformation is a data transformation technique, usually used when the original data is skewed or does not follow a normal distribution pattern. Each variable x is replaced with log(x) - so they represent the same values in relation to one another but instead on a log scale, so the graph would be easier to read and patterns easier to define. It makes our lives a whole lot easier, as you can clearly see the difference between the graph above, and the graph below. 
 
-Whilst we are at it, we can make some further adjustments ... 
+We can also make some further adjustments to the graph to improve presentation. 
 
+We can adjust what is stated when yoUr mouse hovers over points with this simple code:
+```
+text = ~paste("country:", country.list, "<br>Population:", population)
+```
+The text holds a string of information for each data point. In this example, each point will have information on the specific country and the population of puffins seen at that point in tha year. Another technique to present this information is using 'hoverinfo' which does the same thing: 
+
+```
+text = ~country, 
+    hoverinfo = "text",
+```
+This presents only the name of the country when hovering over a point. 
+
+To make this graph look more professional, we can remove the gridlines and emphasise the clean axis lines, to create a clear graph. 
+
+
+Adding edited axis labels and title, 
+
+Logging layout on the y axis. 
+
+
+
+
+
+If we combine all these features, we get this code: 
 ``` 
 
 improved_plot <- plot_ly(data = puffin_data,                                                                                     # Using the puffin data
@@ -251,5 +276,35 @@ improved ...
 
 ## 6. Making an animation 
 
+```
+# If we want to take it one step further and make this graph more accessible for those of younger ages ... we can make it ANIMATED 
+# We only need to add a few extra lines, as displayed: 
+
+animated_plot <- puffin_data %>%                                                        
+  plot_ly(                                                                              # Using plot_ly function for the animation 
+    x =~year,                                                                     
+    y =~log(population),                                                                                                                                
+    color =~country.list,
+    frame =~year,                                                                       # Creating the animation by specifying each frame corresponds to a different year                                                          
+    text =~country.list,                                                                # When mouse hovers over data point, it will show the country
+    hoverinfo = "text",                                                                 # Only the country name will be shown when hoving over point
+    type = 'scatter',
+    mode = 'markers') %>% 
+  layout (title = "Atlantic Puffin population over the years in different countries",
+          xaxis = list (title = "Years",
+                        showgrid = FALSE,
+                        zeroline = TRUE,
+                        linecolor = 'black'),
+          yaxis = list(title = "Population (Log Scale)", 
+                       type = "log", 
+                       showgrid = FALSE,
+                       zeroline = TRUE,
+                       linecolor = 'black'))
+
+animated_plot
+
+saveWidget(animated_plot, "puffin_animated_plot.html") 
+
+```
 
 <iframe src ="figures/puffin_animated_plot.html" width = "800" height = "600"></iframe>
