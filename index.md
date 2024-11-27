@@ -286,7 +286,6 @@ frame =~year
 ```
 This is the key animated feature, that allows the graph and data points to transition through different frames with years. Without the frame stated, this would be a static plot. 
 
-
 ```
 # We only need to add a few extra lines, as displayed: 
 
@@ -316,6 +315,9 @@ animated_plot
 saveWidget(animated_plot, "puffin_animated_plot.html") 
 
 ```
-This is the finished product! More mouse interactions to draw in the audience. 
+This is the finished product! More mouse interactions to draw in the audience, such as the play button and voila! It all happens for you!
 
 <iframe src ="figures/puffin_animated_plot.html" width = "800" height = "600"></iframe>
+
+
+
