@@ -1,3 +1,6 @@
+
+![image](https://github.com/user-attachments/assets/4b6344d8-b417-478d-98a0-66ec92be53a3)
+
 # Creating interactive visualisations: DT and plotly 
 #### *Created by Emma House*
 ---
