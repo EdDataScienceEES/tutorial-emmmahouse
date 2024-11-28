@@ -1,6 +1,9 @@
-# Creating interactive visualisations: DT, flextable, plotly and gganimate
+# Creating interactive visualisations: DT, plotly and leaflet
 ## Created by Emma House 
 ### 21/11/2024
+
+# Purpose of the script 
+# Your name, date and email 
 
 # Set your working directory, this will be different for you depending on your filepath to the downloaded repository 
 setwd("~/Downloads/tutorial-emmmahouse")
@@ -11,7 +14,8 @@ install.packages("DT")           # Renders the interactive tables in reports
 install.packages("ggplot2")      # Helps us create the beautiful graphs
 install.packages("dplyr")        # Provides a range of functions to help manipulate data
 install.packages("plotly")       # Creates the interactive graphs, even 3D plots or geographic maps
-install.packages("htmlwidgets")  # Allows us to create HTML based interactive inforgraphics
+install.packages("htmlwidgets")  # Allows us to create HTML based interactive infographics
+install.packages ("leaflet")     # Creates interactive maps 
 
 
 # Download libraries 
@@ -21,6 +25,7 @@ library(ggplot2)
 library(dplyr)
 library(plotly)
 library(htmlwidgets)
+library(leaflet)
 
 # Load the puffin data 
 atlantic_puffin <- read.csv("data/atlantic_puffin.csv")
@@ -132,3 +137,71 @@ animated_plot <- puffin_data %>%
 animated_plot
 
 saveWidget(animated_plot, "puffin_animated_plot.html") 
+
+
+#Creating the interactive map 
+
+#create coordinates in new dataframe 
+country_coords <- data.frame(                                                                       # Creating a new dataframe with coordinates for the countries
+  country = c("Russian Federation", "Canada", "France", "Ireland", "United Kingdom", "Norway"),     # Combine the countries in the puffin_data set 
+  lat = c(55.7558, 56.1304, 46.6034, 53.1424, 51.5074, 60.4720),                                    # Combine the latitude coordinates for each country 
+  long = c(37.6176, -106.3468, 1.8883, -7.6921, -0.1278, 8.4689))                                   # Combine the longitude coordinates for each country 
+
+
+# Merging coordinate data with the puffin data for a specific year eg 1970
+
+map_data <- puffin_data %>%                                       # Making a new data set called map_data which will be the puffin_data and country_coords combined               
+  filter(year == 1970) %>%                                        # Filter the puffin_data to only use one year of data in the map 
+  left_join(country_coords, by = c("country.list" = "country"))   # Joining the puffin_data and country_coords data into one datase, through matching the country columns 
+
+# Simple plain map 
+leaflet() %>% 
+  addTiles()
+
+# What are the different addTiles?
+names(providers)[1:5]
+
+# Playing around with the different maps you can use
+leaflet() %>% 
+  addProviderTiles(provider = "OpenStreetMap.France")
+
+# Adding a map with a specific view eg Taj Mahal
+leaflet() %>%  
+  addTiles () %>% 
+  setView(lat = 27.1751, lng = 78.0421, zoom = 16)
+
+# Simple map of markers on the countries we have data for
+leaflet(map_data) %>% 
+  addTiles() %>% 
+  setView (lng = 0, lat = 20, zoom = 2) %>%
+  addAwesomeMarkers (
+    lng = ~long,
+    lat = ~lat)
+
+# A very cool map just made, but we can do more by adding different markers, with size based on the population of the puffins respecitvely
+# Can also make it more interactive with hover effects! 
+
+# Best and most improved edited map 
+leaflet(map_data) %>%                                                    # Using the leaflet package, using the new dataset we made          
+  addTiles() %>%                                                         # Adding default basemap tiles, the map background: weaves multiple map images together 
+  setView(lng = 0, lat = 20, zoom = 2) %>%                               # Setting the initial view of the map, centering it near the equator and prime meridian, with a wide zoom
+  addCircleMarkers(                                                      # Circle markers represent the data points 
+    lng = ~long,                                                         # We add these markers based on the latitude and longitude of the countries
+    lat = ~lat,
+    radius = ~sqrt(population / 1),                                      # This scales the circles based on the population size of the puffins in each country (square root makes it more proportional)
+    color = "blue",                                                      # Circles are blue 
+    stroke = FALSE,                                                      # Outline of the circles removed
+    fillOpacity = 0.5,                                                   # Sets transparency of the circle to 50%
+    popup = ~paste("", country.list,                                     # Describes what will be seen when the circle data point is clicked
+                   "<br>population: ",                                   # The country name and population will appear 
+                   format(population, big.mark = ","))) %>%              # A comma will be used for values larger than 1,000
+  addLegend("bottomright",                                               # Adds a legend to the map in the bottom right
+    pal = colorNumeric("Blues", NULL),                                   # Creates a colour palette using the blue originally stated
+    values = ~population,                                                # Population values generate the blue colour
+    title = "Population size",                                           # Title of the legend is population size
+    labFormat = labelFormat(big.mark = ","),                             # Formats the numbers in the legend so those more than 1,000 have commas where necessary
+    opacity = 1)                                                         # Sets the opacity of the legend to 100
+
+
+
+
