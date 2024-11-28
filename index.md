@@ -13,7 +13,7 @@
 #### 3. To confidently produce interactive and animated graphs
 #### 4. To understand data patterns more efficiently and easily from interactive infographics
 
-<img src="https://github.com/user-attachments/assets/cc144fed-ef51-473e-914f-99edd798a0af" width ="400"  height = "300">
+<img src="https://github.com/user-attachments/assets/cc144fed-ef51-473e-914f-99edd798a0af" width ="600"  height = "200">
 
 ## Tutorial aims: 
 1. Introducing the importance of interactive visualisations
