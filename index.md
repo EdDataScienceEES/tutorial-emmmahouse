@@ -435,6 +435,36 @@ INSERT OUTPUT
 
 Now we have a map with pins on the countries in our dataset. What next? We want to display the size of the puffin populations in each country, as well as including more interactive effects. We can customise this map further.  
 
+```
+# Complete interactive map
+leaflet(map_data) %>%                                                    # Using the leaflet package, using the new dataset we made          
+  addTiles() %>%                                                         # Adding default basemap tiles, the map background: weaves multiple map images together 
+  setView(lng = 0, lat = 20, zoom = 2) %>%                               # Setting the initial view of the map, centering it near the equator and prime meridian, with a wide zoom
+  addCircleMarkers(                                                      # Circle markers represent the data points 
+    lng = ~long,                                                         # We add these markers based on the latitude and longitude of the countries
+    lat = ~lat,
+    radius = ~sqrt(population / 1),                                      # This scales the circles based on the population size of the puffins in each country (square root makes it more proportional)
+    color = "blue",                                                      # Circles are blue 
+    stroke = FALSE,                                                      # Outline of the circles removed
+    fillOpacity = 0.5,                                                   # Sets transparency of the circle to 50%
+    popup = ~paste("", country.list,                                     # Describes what will be seen when the circle data point is clicked
+                   "<br>population: ",                                   # The country name and population will appear 
+                   format(population, big.mark = ","))) %>%              # A comma will be used for values larger than 1,000
+  addLegend("bottomright",                                               # Adds a legend to the map in the bottom right
+    pal = colorNumeric("Blues", NULL),                                   # Creates a colour palette using the blue originally stated
+    values = ~population,                                                # Population values generate the blue colour
+    title = "Population size",                                           # Title of the legend is population size
+    labFormat = labelFormat(big.mark = ","),                             # Formats the numbers in the legend so those more than 1,000 have commas where necessary
+    opacity = 1)                                                         # Sets the opacity of the legend to 100
+
+```
+Congrats - you have officially made an interactive graph, which tells us Russia had the largest puffin population in 1970 according to this dataset.
+
+OUTPUT
+
+
+
+
 
 ## 8. Summary 
 
@@ -444,6 +474,7 @@ b. how to add simple extra lines of code to produce an interactive table or grap
 c. the importance of logging data when it is skewed
 d. further packages that can be used for similar outputs
 e. how to create a simple animation that can be built upon through simple edits
+f. how to build a creative interactive map
 
 If you have any questions or feedback on this tutorial, feel free to contact me at s2347885@ed.ac.uk !  
 
