@@ -197,8 +197,8 @@ NB. Here are some further options for interactive data tables ...
 | Package     | Explanation                                                                                                                                | 
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | DT          | Easy to use, sorts and searches larger datasets efficiently. Filters catagorical and numeric data, allowing independent searching for users.| 
-| reactable   | More modern tabling system, less feature rich than DT but more user-friendly interface.                                                    |
-| formattable | Provides in cell visualisation for dataframes, adding coloured scales and bars as indicators of the values in the cells.                    |
+| reactable   | More modern tabling system, less feature-rich than DT but more user-friendly interface.                                                    |
+| formattable | Provides in-cell visualisation for dataframes, adding coloured scales and bars as indicators of the values in the cells.                    |
 | flextable   | Word and powerpoint compatible tables, for reports. You can add images, merge cells and apply themes.                                      |
 
 *Please note you cannot use two of these functions for one table. Some are not compatible to work together eg DT and reactable.*
@@ -296,7 +296,7 @@ We can now take this graph one step further and transition it into an animation.
 
 The differences between gganimate and plot_ly packages for animated infographics:\
 *'gganimate'* - built on ggplot2, limited interactivity, animated frame-by-frame and can be exported as a GIF or video. 
-*'plot_ly'* - involves full interactviity including zoom, creates continuous animation, exported as a HTML and easier for beginners. 
+*'plot_ly'* - involves full interactivity including zoom, creates continuous animation, exported as a HTML and easier for beginners. 
 
 The only difference to the code for an animation is follows: 
 ```
