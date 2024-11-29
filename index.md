@@ -129,7 +129,7 @@ Data tables in general, are **fundamental tools** when it comes to data analysis
 
 Now lets take this a step further and talk about interactive tables. These let the audience **engage with the data directly**, allow them to filter through values, finding their own conclusions. It adds an element of **fun** for those who have no background in data analysis and makes the data even more accessible than it already was. 
 
-Now there are several ways to create an interactive table, different functions that can be used. In this tutorial we will cover the use of **DT** which allows a range of table features that allows customised interactions. You piece together the code based on how you would like the table to look: 
+Now there are several ways to create an interactive table, with different packages that can be used. In this tutorial we will cover the use of **DT** which allows a range of table features that allows customised interactions. You piece together the code based on how you would like the table to look: 
 
 i. We would like **10 rows of data per page**, otherwise it would be too overwhelming\
 ii. We would like a **search bar** to aid data observations for the audience\
