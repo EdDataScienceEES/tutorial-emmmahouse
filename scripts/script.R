@@ -139,9 +139,9 @@ animated_plot
 saveWidget(animated_plot, "puffin_animated_plot.html") 
 
 
-#Creating the interactive map 
+# Creating the interactive map 
 
-#create coordinates in new dataframe 
+# Create coordinates in new data frame 
 country_coords <- data.frame(                                                                       # Creating a new dataframe with coordinates for the countries
   country = c("Russian Federation", "Canada", "France", "Ireland", "United Kingdom", "Norway"),     # Combine the countries in the puffin_data set 
   lat = c(55.7558, 56.1304, 46.6034, 53.1424, 51.5074, 60.4720),                                    # Combine the latitude coordinates for each country 
@@ -166,23 +166,27 @@ leaflet() %>%
   addProviderTiles(provider = "OpenStreetMap.France")
 
 # Adding a map with a specific view eg Taj Mahal
-leaflet() %>%  
+taj_mahal <- (leaflet() %>%  
   addTiles () %>% 
-  setView(lat = 27.1751, lng = 78.0421, zoom = 16)
+  setView(lat = 27.1751, lng = 78.0421, zoom = 16))
+
+saveWidget(taj_mahal,"taj_mahal_map.html")
 
 # Simple map of markers on the countries we have data for
-leaflet(map_data) %>% 
+simple_map <- (leaflet(map_data) %>% 
   addTiles() %>% 
   setView (lng = 0, lat = 20, zoom = 2) %>%
   addAwesomeMarkers (
     lng = ~long,
-    lat = ~lat)
+    lat = ~lat))
 
-# A very cool map just made, but we can do more by adding different markers, with size based on the population of the puffins respecitvely
+saveWidget(simple_map, "simple_map.html")
+
+# A very cool map just made, but we can do more by adding different markers, with size based on the population of the puffins respectively
 # Can also make it more interactive with hover effects! 
 
 # Best and most improved edited map 
-leaflet(map_data) %>%                                                    # Using the leaflet package, using the new dataset we made          
+improved_map <- (leaflet(map_data) %>%                                                    # Using the leaflet package, using the new dataset we made          
   addTiles() %>%                                                         # Adding default basemap tiles, the map background: weaves multiple map images together 
   setView(lng = 0, lat = 20, zoom = 2) %>%                               # Setting the initial view of the map, centering it near the equator and prime meridian, with a wide zoom
   addCircleMarkers(                                                      # Circle markers represent the data points 
@@ -200,8 +204,8 @@ leaflet(map_data) %>%                                                    # Using
     values = ~population,                                                # Population values generate the blue colour
     title = "Population size",                                           # Title of the legend is population size
     labFormat = labelFormat(big.mark = ","),                             # Formats the numbers in the legend so those more than 1,000 have commas where necessary
-    opacity = 1)                                                         # Sets the opacity of the legend to 100
+    opacity = 1))                                                         # Sets the opacity of the legend to 100
 
-
+saveWidget(improved_map, "improved_map.html")
 
 
