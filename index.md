@@ -433,7 +433,7 @@ Hopefully I have emphasised how cool this bit of code is. Now back to our aim: t
 There are a wide variety of markers that can be used within the leaflet code including:
 - *addMarkers()*
 - *addAwesomeMarkers()*
-- *addCircleMarkers()*\
+- *addCircleMarkers()*
   
 You can customise these, making them coloured, display numbers or cluster several points.
 Within these brackets, you state the columns with the co-ordinates, so the computer knows where to place these markers.
