@@ -341,7 +341,8 @@ This is the finished product! More mouse interactions to draw in the audience, s
 Although this animation is complicated to follow with all the populations from different countries, it still displays the intended investigation: how have puffin populations shifted over time in different countries. Each population, each data point, was not measured in every year across the x axis, making it difficult to follow. However, it seems that a few populations have seen a decrease in Russia, whilst the rest have fluctuated but remained somewhat stable.
 
 ## 7. Creating an interactive map with leaflet 
-We are going to end this tutorial with an interactive map. This introduces the final new package: leaflet. Leaflet is an open-source library for interactive maps and includes features such as: 
+
+We are going to end this tutorial with an interactive map. This introduces the final new package: leaflet. Leaflet is an open-source library for interactive maps and includes features such as:\
 - customisable markers/ icons
 - interactive maps (zoom in and out with mouse hover interactions)
 - maps that can be embedded into markdowns
@@ -382,7 +383,7 @@ The next step is making the map. This requires very simple code ... literally tw
 leaflet() %>% 
   addTiles()
 ```
-ADD OUTPUT 
+<iframe src ="figures/plain_map.html" width = "800" height = "600"></iframe>
 
 *What is addTiles?*
 The function addTiles() forms the default basemap tiles, the map background which weaves multiple images of maps together. It automatically uploades OpenStreetMap (OSM) to the leaflet map - but other maps can be used, including custom maps. You can alter your map depending on what you want your data to show, as different maps can show different projections. The leaflet package have more than 100 different map tiles you can use. 
@@ -401,6 +402,8 @@ leaflet() %>%
 ```
 You can even create a map with a specific view ... 
 
+<iframe src ="figures/new_map.html" width = "800" height = "600"></iframe>
+
 ```
  # Adding a map with a specific view eg Taj Mahal
 leaflet() %>%  
@@ -410,15 +413,15 @@ leaflet() %>%
 
 setView is required to adjust the initial view of the map, thus the coordinates above arranged the map focussed on the Taj Mahal, as seen below. 
 
-ADD OUTPUT 
+<iframe src ="figures/taj_mahal_map.html" width = "800" height = "600"></iframe>
 
 
 Hopefully I have emphasised how cool this bit of code is. Now back to our aim: to create an interactive map displaying the puffin populations in different countries in 1970.So we have this new dataset, map_data, that we can plug into leaflet. We know to use addTiles - but how do we create markers? 
 
 There are a wide variety of markers that can be used within the leaflet code including:
-- addMarkers ()
-- addAwesomeMarkers()
-- addCircleMarkers()
+- *addMarkers ()*
+- *addAwesomeMarkers()*
+- *addCircleMarkers()*
 You can customise these, making them coloured, display numbers or cluster several points.
 Within these brackets, you state the columns with the co-ordinates, so the computer knows where to place these markers.
 
@@ -431,7 +434,8 @@ leaflet(map_data) %>%                            # Plugging in our new dataset
     lng = ~long,                                 # The location of the markers are based on the lat and long columns in our dataset (map_data) 
     lat = ~lat)
 ```
-INSERT OUTPUT  
+
+<iframe src ="figures/simple_map.html" width = "800" height = "600"></iframe>
 
 Now we have a map with pins on the countries in our dataset. What next? We want to display the size of the puffin populations in each country, as well as including more interactive effects. We can customise this map further.  
 
@@ -460,10 +464,7 @@ leaflet(map_data) %>%                                                    # Using
 ```
 Congrats - you have officially made an interactive graph, which tells us Russia had the largest puffin population in 1970 according to this dataset.
 
-OUTPUT
-
-
-
+<iframe src ="figures/improved_map.html" width = "800" height = "600"></iframe>
 
 
 ## 8. Summary 
@@ -476,7 +477,7 @@ d. further packages that can be used for similar outputs
 e. how to create a simple animation that can be built upon through simple edits
 f. how to build a creative interactive map
 
-If you have any questions or feedback on this tutorial, feel free to contact me at s2347885@ed.ac.uk !  
+If you have any questions or feedback on this tutorial, feel free to contact me at s2347885@ed.ac.uk. 
 
 **References used for this tutorial:**
 If you need more help on any of the tutorial, visit these links that helped make this tutorial !
@@ -492,3 +493,8 @@ If you need more help on any of the tutorial, visit these links that helped make
 [WWF](https://www.wwf.org.uk/learn/fascinating-facts/puffins)
 
 [Living planet index data](https://www.livingplanetindex.org/)
+
+[Interactive maps by R](https://rpubs.com/Vishal_/leaflet_maps)
+
+[Add markers to leaflet](https://rstudio.github.io/leaflet/articles/markers.html)
+
