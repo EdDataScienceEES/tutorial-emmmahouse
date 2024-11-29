@@ -54,7 +54,7 @@ puffin_data <- atlantic_puffin %>%
 datatable(puffin_data,                        # This is the data set we will be using in the table
           options = list(                     # We want the table in a list format of data
             pageLength = 10,                  # Each page has 10 rows of values
-            searching = TRUE,                 # We can add a search bar
+            searching = TRUE,                  # We can add a search bar
             lengthChange = FALSE))            # We cannot change the number of rows displayed per page
  
 saveWidget(datatable(puffin_data), "interactive_table.html")   # Saving the interactive table to a HTML file 
@@ -155,15 +155,20 @@ map_data <- puffin_data %>%                                       # Making a new
   left_join(country_coords, by = c("country.list" = "country"))   # Joining the puffin_data and country_coords data into one datase, through matching the country columns 
 
 # Simple plain map 
-leaflet() %>% 
-  addTiles()
+plain_map <- (leaflet() %>% 
+  addTiles())
+
+saveWidget(plain_map,"plain_map.html")
+
 
 # What are the different addTiles?
 names(providers)[1:5]
 
 # Playing around with the different maps you can use
-leaflet() %>% 
-  addProviderTiles(provider = "OpenStreetMap.France")
+new_map<- (leaflet() %>% 
+  addProviderTiles(provider = "OpenStreetMap.France"))
+
+saveWidget(new_map,"new_map.html")
 
 # Adding a map with a specific view eg Taj Mahal
 taj_mahal <- (leaflet() %>%  
