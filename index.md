@@ -400,23 +400,21 @@ Now you can plug any of these into the addTiles function - have a play around wi
 leaflet() %>% 
   addProviderTiles(provider = "OpenStreetMap.France")
 ```
-You can even create a map with a specific view ... 
 
 <iframe src ="figures/new_map.html" width = "800" height = "600"></iframe>
 
+You can even create a map with a specific view. Copy this code to see a famous landmark on the map!
+setView is required to adjust the initial view of the map, thus the coordinates below can be arranged to focus on a specific place.
+
 ```
- # Adding a map with a specific view eg Taj Mahal
+ # Adding a map with a specific view 
 leaflet() %>%  
   addTiles () %>% 
   setView(lat = 27.1751, lng = 78.0421, zoom = 16)
 ```
 
-setView is required to adjust the initial view of the map, thus the coordinates above arranged the map focussed on the Taj Mahal, as seen below. 
 
-<iframe src ="figures/taj_mahal_map.html" width = "800" height = "600"></iframe>
-
-
-Hopefully I have emphasised how cool this bit of code is. Now back to our aim: to create an interactive map displaying the puffin populations in different countries in 1970.So we have this new dataset, map_data, that we can plug into leaflet. We know to use addTiles - but how do we create markers? 
+Hopefully I have emphasised how cool this bit of code is. Now back to our aim: to create an interactive map displaying the puffin populations in different countries in 1970. So we have this new dataset, map_data, that we can plug into leaflet. We know to use addTiles - but how do we create markers? 
 
 There are a wide variety of markers that can be used within the leaflet code including:
 - *addMarkers ()*
@@ -435,9 +433,18 @@ leaflet(map_data) %>%                            # Plugging in our new dataset
     lat = ~lat)
 ```
 
+The output should look something like this: 
+
 <iframe src ="figures/simple_map.html" width = "800" height = "600"></iframe>
 
-Now we have a map with pins on the countries in our dataset. What next? We want to display the size of the puffin populations in each country, as well as including more interactive effects. We can customise this map further.  
+Now we have a map with pins on the countries in our dataset. What next? We want to display the size of the puffin populations in each country, as well as including more interactive effects. We can customise this map further.
+
+We can customise the markers, changing their colour and size based on the values. In this example, we will be using circle markers, which differ in size depending on the size of the puffin populaiton. To do this, we use: *'radius = ~sqrt(population/ 1)'* . This will alter the radius of the circle markers, using the square root of the population to make the values proportional. Further customisations can be added with the *fillOpacity* and *stroke* functions that are explained below. 
+
+We can also customise the markers so they change colours depending on their puffin population value. A legend can be easily added with the function *'addLegend'* : stating where on the map to position this, colour palette, values and title. 
+
+We can also make this map more interactive, via hover effects. If your mouse hovers over the data points we can add text, such as the country and population size with the function *'popup'*. The <br> below can help create a new line for the information, so one is for the country and the next line is for the population size. Super handy! 
+
 
 ```
 # Complete interactive map
@@ -462,7 +469,7 @@ leaflet(map_data) %>%                                                    # Using
     opacity = 1)                                                         # Sets the opacity of the legend to 100
 
 ```
-Congrats - you have officially made an interactive graph, which tells us Russia had the largest puffin population in 1970 according to this dataset.
+Congrats - you have officially made a creative interactive graph, which tells us Russia had the largest puffin population in 1970 according to this dataset.
 
 <iframe src ="figures/improved_map.html" width = "800" height = "600"></iframe>
 
@@ -470,6 +477,7 @@ Congrats - you have officially made an interactive graph, which tells us Russia 
 ## 8. Summary 
 
 We have reached the end of the tutorial - congratulations !! Hopefully you have learnt: 
+
 a. the power and importance of data presentation, especially catering toward your specific audience 
 b. how to add simple extra lines of code to produce an interactive table or graph 
 c. the importance of logging data when it is skewed
