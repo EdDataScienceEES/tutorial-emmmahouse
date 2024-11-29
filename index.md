@@ -75,7 +75,7 @@ The data used below is a segment of the dataset from Living Planet Index - a fre
 
 ```
 # Load the puffin data 
-atlantic_puffin <- read.csv("data/atlantic_puffin.csv")
+atlantic_puffin <- read.csv("atlantic_puffin.csv")
 ```
 ![image](https://github.com/user-attachments/assets/ebebbc96-5487-4a3c-ad1c-2adf6daba4ec)
 *Credits: WWF*
