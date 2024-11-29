@@ -404,9 +404,9 @@ The function addTiles() forms the default basemap tiles, the map background whic
 
 ```
 # What are the different addTiles?
-names(providers)[1:5]
+names(providers)
 ```
-Now you can plug any of these into the addTiles function - have a play around with it!\ 
+Now you can plug any of these into the addTiles function - have a play around with it! 
 
 ![image](https://github.com/user-attachments/assets/3330b710-f8bb-4595-b8b4-11c08c9223ff)
 
