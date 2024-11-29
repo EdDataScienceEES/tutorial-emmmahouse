@@ -121,6 +121,7 @@ puffin_data <- atlantic_puffin %>%
   rename_with(tolower)                                                               # Renaming the columns so they are lowercase: improving coding etiquette 
 
 
+
 ```
 
 ## 4. Creating a simple interactive table
@@ -144,11 +145,10 @@ This *criteria* we have made can be easily transferred into code, specifically, 
 datatable(puffin_data,                        # This is the data set we will be using in the table
           options = list(                     # We want the table in a list format of data
             pageLength = 10,                  # Each page has 10 rows of values
-            searching = TRUE,                 # We can add a search bar
+            searching = TRUE,                  # We can add a search bar
             lengthChange = FALSE))            # We cannot change the number of rows displayed per page
 
 saveWidget(datatable(puffin_data), "interactive_table.html")   # Saving the interactive table to a HTML file 
-
 
 ```
 Bare in mind *'saveWidget'* is used throughout this tutorial as a means of saving the interactive tables, graphs and maps as HTML files. Thus these can be transferred into websites. 
@@ -181,7 +181,7 @@ improved_table <- datatable(puffin_data,                                        
 
 print(improved_table)
 
-saveWidget(improved_table, "improved_table.html") # Saving the improved interactive table to a HTML file
+saveWidget(improved_table, "improved_interactive_table.html")               # Saving the improved interactive table to a HTML file
 
 ```
 Now you should have something that looks like this: 
@@ -217,7 +217,7 @@ As we are investigating the puffin populations over time across different countr
 
 ```
 # Creating a basic interactive scatter plot 
-plot <- plot_ly(data = puffin_data,           # Using the puffin data
+plot <- plot_ly(data = puffin_data,                   # Using the puffin data
         x = ~year,                            # Year on the x axis
         y = ~population,                      # Population size on the y axis
         color = ~country.list,                # Each country has a new colour 
@@ -227,6 +227,7 @@ plot <- plot_ly(data = puffin_data,           # Using the puffin data
 print(plot)
 
 saveWidget(plot, "interactive_scatter.html") 
+
 ```
 So what does this look like? Well, you should have something that looks a little bit like this: 
 
@@ -335,7 +336,7 @@ animated_plot <- puffin_data %>%
                        zeroline = TRUE,
                        linecolor = 'black'))
 
-animated_plot
+print(animated_plot)
 
 saveWidget(animated_plot, "puffin_animated_plot.html") 
 
@@ -393,7 +394,9 @@ The next step is making the map. This requires very simple code, literally two l
 # Simple plain map 
 leaflet() %>% 
   addTiles()
+
 ```
+
 <iframe src ="figures/plain_map.html" width = "800" height = "600"></iframe>
 
 *What is addTiles?*\
@@ -437,12 +440,16 @@ Within these brackets, you state the columns with the co-ordinates, so the compu
 
 ```
 # Simple map of markers on the countries with data
-leaflet(map_data) %>%                            # Plugging in our new dataset
+simple_map <- (leaflet(map_data) %>%                            # Plugging in our new dataset
   addTiles() %>%                                 # Using the default map 
   setView (lng = 0, lat = 20, zoom = 2) %>%      # Adjusting the view of the map to centre it near the equator with a wide zoom
   addAwesomeMarkers (                            # Adding markers for the country points
     lng = ~long,                                 # The location of the markers are based on the lat and long columns in our dataset (map_data) 
-    lat = ~lat)
+    lat = ~lat))
+
+print(simple_map)
+saveWidget(simple_map, "simple_map.html")
+
 ```
 
 The output should look something like this: 
@@ -460,7 +467,7 @@ We can also make this map more interactive, via clicking effects. If your mouse 
 
 ```
 # Complete interactive map
-leaflet(map_data) %>%                                                    # Using the leaflet package, using the new dataset we made          
+improved_map <- (leaflet(map_data) %>%                                                    # Using the leaflet package, using the new dataset we made          
   addTiles() %>%                                                         # Adding default basemap tiles, the map background: weaves multiple map images together 
   setView(lng = 0, lat = 20, zoom = 2) %>%                               # Setting the initial view of the map, centering it near the equator and prime meridian, with a wide zoom
   addCircleMarkers(                                                      # Circle markers represent the data points 
@@ -478,7 +485,10 @@ leaflet(map_data) %>%                                                    # Using
     values = ~population,                                                # Population values generate the blue colour
     title = "Population size",                                           # Title of the legend is population size
     labFormat = labelFormat(big.mark = ","),                             # Formats the numbers in the legend so those more than 1,000 have commas where necessary
-    opacity = 1)                                                         # Sets the opacity of the legend to 100
+    opacity = 1))                                                        # Sets the opacity of the legend to 100
+
+print(improved_map)
+saveWidget(improved_map, "improved_map.html")
 
 ```
 Congrats - you have officially made a creative interactive graph, which tells us Russia had the largest puffin population in 1970 according to this dataset.
