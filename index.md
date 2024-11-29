@@ -1,7 +1,7 @@
 
 ![image](https://github.com/user-attachments/assets/4b6344d8-b417-478d-98a0-66ec92be53a3)
 
-# Creating interactive visualisations: DT and plotly 
+# Creating interactive visualisations: DT, plotly and leaflet 
 #### *Created by Emma House*
 ---
 ![image](https://github.com/user-attachments/assets/cc144fed-ef51-473e-914f-99edd798a0af)
@@ -11,18 +11,22 @@
 #### 1. To understand the importance of interactive infographics for widening your audience range
 #### 2. To confidently use packages such as DT to produce a basic interactive table
 #### 3. To confidently produce interactive and animated graphs
-#### 4. To understand data patterns more efficiently and easily from interactive infographics
+#### 4. To confidently use packages such as leaflet to produce an interactive map
+#### 5. To understand data patterns more efficiently and easily from interactive infographics
 
-<img src="https://github.com/user-attachments/assets/cc144fed-ef51-473e-914f-99edd798a0af" width ="400"  height = "300">
 
 ## Tutorial aims: 
 1. Introducing the importance of interactive visualisations
 2. Background checks
+   A. Set your working directory 
+   B. Install packages and download libraries needed for the tutorial
+   C. Load in the data you would like to use for this tutorial 
 3. Wrangling the data
 4. Creating a simple interactive table 
 5. Creating an interactive scatter plot
-6. Making an animation 
-7. Summary
+6. Making an animation
+7. Creating an interactive map with leaflet 
+8. Summary
 
 **In this tutorial we will be using data from [this repository](https://github.com/EdDataScienceEES/tutorial-emmmahouse.git). Click on that link too access the repository and download the Puffin data used to follow the tutorial directly, or use your own data.**
 
@@ -37,6 +41,8 @@ Here's a list of things to do before we get started:
 As I'm sure you know by now, the working directory is the folder where your script operates from, where it looks for files to read or write. Therefore my working directory will differ to yours, so do edit the code below...
 
 ```
+# Purpose of the script 
+# Your name, date and email 
 # Set your working directory, this will be different for you depending on your filepath to the downloaded repository 
 setwd("~/Downloads/tutorial-emmmahouse")
 ```
@@ -50,7 +56,8 @@ install.packages("DT")           # Renders the interactive tables in reports
 install.packages("ggplot2")      # Helps us create the beautiful graphs
 install.packages("dplyr")        # Provides a range of functions to help manipulate data
 install.packages("plotly")       # Creates the interactive graphs, even 3D plots or geographic maps
-install.packages("htmlwidgets")  # Allows us to create HTML based interactive inforgraphics
+install.packages("htmlwidgets")  # Allows us to create HTML based interactive infographics
+install.packages ("leaflet")     # Creates interactive maps 
 
 
 # Download libraries 
@@ -60,6 +67,7 @@ library(ggplot2)
 library(dplyr)
 library(plotly)
 library(htmlwidgets)
+library(leaflet)
 
 ```
 #### C. Load in the data you would like to use for this tutorial (see above for the link to the repository with the Atlantic Puffin data)
@@ -283,7 +291,11 @@ The improved graph looks a lot better and we can see the different puffin popula
 <iframe src ="figures/improved_interactive_scatter.html" width = "800" height = "600"></iframe>
 
 ## 6. Making an animation 
-Amazing! We are nearly at the end now - you have successfully made an interactive table, interactive graph and learnt further tips along the way about different functions and packages that can also be used for similar results. To end this tutorial, we are going to attempt an animated plot, which can also be made with a package called gganimate, although it can also be made with plot_ly!
+We can now take this graph one step further and transition it into an animation. This can be coded in several ways, but we are sticking with the plot_ly package for now. Check out code online called 'gganimate' - this works just as well if not better !
+
+The differences between gganimate and plot_ly packages for animated infographics: 
+*'gganimate'* - built on ggplot2, limited interactivity, animated frame-by-frame and can be exported as a GIF or video. 
+*'plot_ly'* - involves full interactviity including zoom, creates continuous animation, exported as a HTML and easier for beginners. 
 
 The only difference to the code for an animation is follows: 
 ```
@@ -328,7 +340,133 @@ This is the finished product! More mouse interactions to draw in the audience, s
 
 Although this animation is complicated to follow with all the populations from different countries, it still displays the intended investigation: how have puffin populations shifted over time in different countries. Each population, each data point, was not measured in every year across the x axis, making it difficult to follow. However, it seems that a few populations have seen a decrease in Russia, whilst the rest have fluctuated but remained somewhat stable.
 
-## 7. Summary 
+## 7. Creating an interactive map with leaflet 
+We are going to end this tutorial with an interactive map. This introduces the final new package: leaflet. Leaflet is an open-source library for interactive maps and includes features such as: 
+- customisable markers/ icons
+- interactive maps (zoom in and out with mouse hover interactions)
+- maps that can be embedded into markdowns
+
+Maps provide an excellent visual cue for your intended audience to take in the data and for you to understand more complicated information easily. 
+
+Before we even begin to code the interactive map, we need to make a new dataset with the co-ordinates for the countries within the puffin_data set. Unfortunately, the data did not come with coordinates, so we are using capital city co-ordinates for now (which is not accurate of the data points but we are basing these puffin population sizes much more vaguely). 
+
+We assign 'country_coords' as a data frame, using c() - a function that combines values into a list/ vector. We begin by making country a vector, then the latitude ('lat') and longitude ('long') for each of these countries. Nothing a simple google can't help with, but if your dataset already has the coordinates then that is ace - you can use them in the same code!
+
+```
+# Create co-ordinates in new data frame 
+country_coords <- data.frame(                                                                       # Creating a new dataframe with coordinates for the countries
+  country = c("Russian Federation", "Canada", "France", "Ireland", "United Kingdom", "Norway"),     # Combine the countries in the puffin_data set 
+  lat = c(55.7558, 56.1304, 46.6034, 53.1424, 51.5074, 60.4720),                                    # Combine the latitude coordinates for each country 
+  long = c(37.6176, -106.3468, 1.8883, -7.6921, -0.1278, 8.4689))                                   # Combine the longitude coordinates for each country 
+```
+
+Now we have this new dataframe, we want to combine it with the original data: puffin_data, so we have a full picture of the population, year, country and co-ordinates. The function used to merge two datasets is 'left_join' - apart of the dplyr package. As it is the 'left' join specifically, it will keep rows from the left data frame and match them to the corresponding rows of the right data frame, based on a specified column - in our case this will be 'country.list'. 
+
+We also want to view data of puffin populations from a specific year - we will go with 1970 for this example but it can be any specific date you are investigating. We will be using the filter function to obtain only the 1970 data, described earlier in the tutorial (3). 
+
+```
+# Merging coordinate data with the puffin data for a specific year eg 1970
+
+map_data <- puffin_data %>%                                       # Making a new data set called map_data which will be the puffin_data and country_coords combined               
+  filter(year == 1970) %>%                                        # Filter the puffin_data to only use one year of data in the map 
+  left_join(country_coords, by = c("country.list" = "country"))   # Joining the puffin_data and country_coords data into one datase, through matching the country columns 
+```
+
+So this new dataset should look something like this: 
+![image](https://github.com/user-attachments/assets/b48d2863-ac9c-4fde-a6b6-27f56203342c)
+
+
+The next step is making the map. This requires very simple code ... literally two lines ....
+```
+# Simple plain map 
+leaflet() %>% 
+  addTiles()
+```
+ADD OUTPUT 
+
+*What is addTiles?*
+The function addTiles() forms the default basemap tiles, the map background which weaves multiple images of maps together. It automatically uploades OpenStreetMap (OSM) to the leaflet map - but other maps can be used, including custom maps. You can alter your map depending on what you want your data to show, as different maps can show different projections. The leaflet package have more than 100 different map tiles you can use. 
+
+```
+# What are the different addTiles?
+names(providers)[1:5]
+```
+Now you can plug any of these into the addTiles function - have a play around with it! 
+![image](https://github.com/user-attachments/assets/3330b710-f8bb-4595-b8b4-11c08c9223ff)
+
+```
+# Playing around with the different maps you can use
+leaflet() %>% 
+  addProviderTiles(provider = "OpenStreetMap.France")
+```
+You can even create a map with a specific view ... 
+
+```
+ # Adding a map with a specific view eg Taj Mahal
+leaflet() %>%  
+  addTiles () %>% 
+  setView(lat = 27.1751, lng = 78.0421, zoom = 16)
+```
+
+setView is required to adjust the initial view of the map, thus the coordinates above arranged the map focussed on the Taj Mahal, as seen below. 
+
+ADD OUTPUT 
+
+
+Hopefully I have emphasised how cool this bit of code is. Now back to our aim: to create an interactive map displaying the puffin populations in different countries in 1970.So we have this new dataset, map_data, that we can plug into leaflet. We know to use addTiles - but how do we create markers? 
+
+There are a wide variety of markers that can be used within the leaflet code including:
+- addMarkers ()
+- addAwesomeMarkers()
+- addCircleMarkers()
+You can customise these, making them coloured, display numbers or cluster several points.
+Within these brackets, you state the columns with the co-ordinates, so the computer knows where to place these markers.
+
+```
+# Simple map of markers on the countries we have data for
+leaflet(map_data) %>%                            # Plugging in our new dataset
+  addTiles() %>%                                 # Using the default map 
+  setView (lng = 0, lat = 20, zoom = 2) %>%      # Adjusting the view of the map to centre it near the equator with a wide zoom
+  addAwesomeMarkers (                            # Adding markers for the country points
+    lng = ~long,                                 # The location of the markers are based on the lat and long columns in our dataset (map_data) 
+    lat = ~lat)
+```
+INSERT OUTPUT  
+
+Now we have a map with pins on the countries in our dataset. What next? We want to display the size of the puffin populations in each country, as well as including more interactive effects. We can customise this map further.  
+
+```
+# Complete interactive map
+leaflet(map_data) %>%                                                    # Using the leaflet package, using the new dataset we made          
+  addTiles() %>%                                                         # Adding default basemap tiles, the map background: weaves multiple map images together 
+  setView(lng = 0, lat = 20, zoom = 2) %>%                               # Setting the initial view of the map, centering it near the equator and prime meridian, with a wide zoom
+  addCircleMarkers(                                                      # Circle markers represent the data points 
+    lng = ~long,                                                         # We add these markers based on the latitude and longitude of the countries
+    lat = ~lat,
+    radius = ~sqrt(population / 1),                                      # This scales the circles based on the population size of the puffins in each country (square root makes it more proportional)
+    color = "blue",                                                      # Circles are blue 
+    stroke = FALSE,                                                      # Outline of the circles removed
+    fillOpacity = 0.5,                                                   # Sets transparency of the circle to 50%
+    popup = ~paste("", country.list,                                     # Describes what will be seen when the circle data point is clicked
+                   "<br>population: ",                                   # The country name and population will appear 
+                   format(population, big.mark = ","))) %>%              # A comma will be used for values larger than 1,000
+  addLegend("bottomright",                                               # Adds a legend to the map in the bottom right
+    pal = colorNumeric("Blues", NULL),                                   # Creates a colour palette using the blue originally stated
+    values = ~population,                                                # Population values generate the blue colour
+    title = "Population size",                                           # Title of the legend is population size
+    labFormat = labelFormat(big.mark = ","),                             # Formats the numbers in the legend so those more than 1,000 have commas where necessary
+    opacity = 1)                                                         # Sets the opacity of the legend to 100
+
+```
+Congrats - you have officially made an interactive graph, which tells us Russia had the largest puffin population in 1970 according to this dataset.
+
+OUTPUT
+
+
+
+
+
+## 8. Summary 
 
 We have reached the end of the tutorial - congratulations !! Hopefully you have learnt: 
 a. the power and importance of data presentation, especially catering toward your specific audience 
@@ -336,6 +474,7 @@ b. how to add simple extra lines of code to produce an interactive table or grap
 c. the importance of logging data when it is skewed
 d. further packages that can be used for similar outputs
 e. how to create a simple animation that can be built upon through simple edits
+f. how to build a creative interactive map
 
 If you have any questions or feedback on this tutorial, feel free to contact me at s2347885@ed.ac.uk !  
 
