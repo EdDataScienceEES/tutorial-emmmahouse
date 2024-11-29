@@ -16,11 +16,11 @@
 
 
 ## Tutorial aims: 
-1. Introducing the importance of interactive visualisations
+1. [Introducing the importance of interactive visualisations](##1.Introducing) 
 2. Background checks\
-   A. Set your working directory 
-   B. Install packages and download libraries needed for the tutorial
-   C. Load in the data you would like to use for this tutorial 
+   A. Set your working directory\
+   B. Install packages and download libraries needed for the tutorial\
+   C. Load in the data you would like to use for this tutorial
 3. Wrangling the data
 4. Creating a simple interactive table 
 5. Creating an interactive scatter plot
