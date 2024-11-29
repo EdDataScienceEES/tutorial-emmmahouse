@@ -16,7 +16,7 @@
 
 
 ## Tutorial aims: 
-1. [Introducing the importance of interactive visualisations](#introduction) 
+1. Introducing the importance of interactive visualisations
 2. Background checks\
    A. Set your working directory\
    B. Install packages and download libraries needed for the tutorial\
@@ -30,7 +30,7 @@
 
 **In this tutorial we will be using data from [this repository](https://github.com/EdDataScienceEES/tutorial-emmmahouse.git). Click on the link to access the repository and download the Puffin data used to follow the tutorial directly, or use your own data.**
 
-#introduction
+
 ## 1. Introducing the importance of interactive visualisations 
 We all know traditional static charts and graphs are useful as infographics, but interactive visuals offer more **flexibility** and **excitement** in data science. We can zoom in on details, observe changes over time and explore data in depth ... how exciting I hear you cry! In all seriousness, if you want your data and graphs to stand out in the crowd, this is the tutorial for you. These interactive infographics are ideal for wesbites that reach out to the **general public** as the audience. The interactive nature makes it **appealing** for a wider range of readers. If you are interested in careers associated with **public engagment and data science**, these are the most engaging graphs to help you out. There are a range of packages we will be delving into that help you break down complex datasets into **easily understandable** animated infographics. Overall, these are super handy tools that can help elevate your data presentation. Now let's get into it ...
 
