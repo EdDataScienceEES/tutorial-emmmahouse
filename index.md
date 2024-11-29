@@ -448,7 +448,7 @@ We can customise the markers, changing their colour and size based on the values
 
 We can also customise the markers so they change colours depending on their puffin population value. A legend can be easily added with the function *'addLegend'* : stating where on the map to position this, colour palette, values and title. 
 
-We can also make this map more interactive, via hover effects. If your mouse hovers over the data points we can add text, such as the country and population size with the function *'popup'*. The *'<br>'* below can help create a new line for the information, so one is for the country and the next line is for the population size. Super handy! 
+We can also make this map more interactive, via clicking effects. If your mouse clicks the data points we can add text, such as the country and population size with the function *'popup'*. The *'<br>'* below can help create a new line for the information, so one is for the country and the next line is for the population size. Super handy! 
 
 
 ```
@@ -483,12 +483,12 @@ Congrats - you have officially made a creative interactive graph, which tells us
 
 We have reached the end of the tutorial - congratulations !! Hopefully you have learnt: 
 
-a. the power and importance of data presentation, especially catering toward your specific audience 
-b. how to add simple extra lines of code to produce an interactive table or graph 
-c. the importance of logging data when it is skewed
-d. further packages that can be used for similar outputs
-e. how to create a simple animation that can be built upon through simple edits
-f. how to build up a creative interactive map
+a. the power and importance of data presentation, especially catering toward your specific audience\
+b. how to add simple extra lines of code to produce an interactive table or graph\
+c. the importance of logging data when it is skewed\
+d. further packages that can be used for similar outputs\
+e. how to create a simple animation that can be built upon through simple edits\
+f. how to build up a creative interactive map\
 
 If you have any questions or feedback on this tutorial, feel free to contact me at s2347885@ed.ac.uk. 
 
