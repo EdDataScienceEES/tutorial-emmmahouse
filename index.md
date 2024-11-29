@@ -145,7 +145,7 @@ This *criteria* we have made can be easily transferred into code, specifically, 
 datatable(puffin_data,                        # This is the data set we will be using in the table
           options = list(                     # We want the table in a list format of data
             pageLength = 10,                  # Each page has 10 rows of values
-            searching = TRUE,                  # We can add a search bar
+            searching = TRUE,                 # We can add a search bar
             lengthChange = FALSE))            # We cannot change the number of rows displayed per page
 
 saveWidget(datatable(puffin_data), "interactive_table.html")   # Saving the interactive table to a HTML file 
@@ -170,7 +170,7 @@ These are simple edits to the code using *'filter = "top"'* to adjust the search
 ## Developing the data table even further ...
 
 
-improved_table <- datatable(puffin_data,                                                      # The dataset for the table 
+improved_table <- datatable(puffin_data,                                    # The dataset for the table 
           filter = "top",                                                   # Adds a search bar at the top of each column 
             options = list(                                                 # We want the table in a list format of data
               pageLength = 10,                                              # Each page has 10 rows of values
@@ -217,7 +217,7 @@ As we are investigating the puffin populations over time across different countr
 
 ```
 # Creating a basic interactive scatter plot 
-plot <- plot_ly(data = puffin_data,                   # Using the puffin data
+plot <- plot_ly(data = puffin_data,           # Using the puffin data
         x = ~year,                            # Year on the x axis
         y = ~population,                      # Population size on the y axis
         color = ~country.list,                # Each country has a new colour 
@@ -270,7 +270,7 @@ dtick = 1
 
 If we combine all these new features, we get this code: 
 ``` 
-improved_plot <- plot_ly(data = puffin_data,                                                                                     # Using the puffin data
+improved_plot <- plot_ly(data = puffin_data,                                                                    # Using the puffin data
         x = ~year,                                                                                              # Year on the x axis
         y = ~log(population),                                                                                   # The logged population size on the y axis
         color = ~country.list,                                                                                  # Each country has a new colour 
@@ -440,7 +440,7 @@ Within these brackets, you state the columns with the co-ordinates, so the compu
 
 ```
 # Simple map of markers on the countries with data
-simple_map <- (leaflet(map_data) %>%                            # Plugging in our new dataset
+simple_map <- (leaflet(map_data) %>%             # Plugging in our new dataset
   addTiles() %>%                                 # Using the default map 
   setView (lng = 0, lat = 20, zoom = 2) %>%      # Adjusting the view of the map to centre it near the equator with a wide zoom
   addAwesomeMarkers (                            # Adding markers for the country points
@@ -467,7 +467,7 @@ We can also make this map more interactive, via clicking effects. If your mouse 
 
 ```
 # Complete interactive map
-improved_map <- (leaflet(map_data) %>%                                                    # Using the leaflet package, using the new dataset we made          
+improved_map <- (leaflet(map_data) %>%                                   # Using the leaflet package, using the new dataset we made          
   addTiles() %>%                                                         # Adding default basemap tiles, the map background: weaves multiple map images together 
   setView(lng = 0, lat = 20, zoom = 2) %>%                               # Setting the initial view of the map, centering it near the equator and prime meridian, with a wide zoom
   addCircleMarkers(                                                      # Circle markers represent the data points 
