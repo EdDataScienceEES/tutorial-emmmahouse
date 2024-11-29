@@ -488,7 +488,7 @@ b. how to add simple extra lines of code to produce an interactive table or grap
 c. the importance of logging data when it is skewed\
 d. further packages that can be used for similar outputs\
 e. how to create a simple animation that can be built upon through simple edits\
-f. how to build up a creative interactive map\
+f. how to build up a creative interactive map
 
 If you have any questions or feedback on this tutorial, feel free to contact me at s2347885@ed.ac.uk. 
 
