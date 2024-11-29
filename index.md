@@ -389,7 +389,7 @@ leaflet() %>%
 ```
 <iframe src ="figures/plain_map.html" width = "800" height = "600"></iframe>
 
-*What is addTiles?*
+*What is addTiles?*\
 The function addTiles() forms the default basemap tiles, the map background which weaves multiple images of maps together. It automatically uploades **OpenStreetMap (OSM)** to the leaflet map - but other maps can be used, including custom maps. You can alter your map depending on what you want your data to show, as different maps can show different **projections**. The leaflet package have more than **100 different map tiles** you can use. 
 
 ```
