@@ -462,7 +462,7 @@ We can customise the markers, changing their colour and size based on the values
 
 We can also customise the markers so they change colours depending on their puffin population value. A legend can be easily added with the function *'addLegend'* : stating where on the map to position this, colour palette, values and title. 
 
-We can also make this map more interactive, via clicking effects. If your mouse clicks the data points we can add text, such as the country and population size with the function *'popup'*. The **"<br>"** below can help create a new line for the information, so one is for the country and the next line is for the population size. Super handy! 
+We can also make this map more interactive, via clicking effects. If your mouse clicks the data points, we can add text such as the country and population size with the function *'popup'*. Super handy! 
 
 
 ```
