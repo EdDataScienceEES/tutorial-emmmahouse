@@ -146,7 +146,7 @@ datatable(puffin_data,                        # This is the data set we will be 
             pageLength = 10,                  # Each page has 10 rows of values
             searching = TRUE,                 # We can add a search bar
             lengthChange = FALSE))            # We cannot change the number of rows displayed per page
- 
+
 saveWidget(datatable(puffin_data), "interactive_table.html")   # Saving the interactive table to a HTML file 
 
 
@@ -170,7 +170,7 @@ These are simple edits to the code using *'filter = "top"'* to adjust the search
 ## Developing the data table even further ...
 
 
-datatable(puffin_data,                                                      # The dataset for the table 
+improved_table <- datatable(puffin_data,                                                      # The dataset for the table 
           filter = "top",                                                   # Adds a search bar at the top of each column 
             options = list(                                                 # We want the table in a list format of data
               pageLength = 10,                                              # Each page has 10 rows of values
@@ -179,7 +179,9 @@ datatable(puffin_data,                                                      # Th
   formatStyle ('population',                                                # Formatting the population column
                backgroundColor = styleInterval(10, c('red', 'white')))      # Adding colour red to any population values below 10
 
-saveWidget(datatable(puffin_data), "improved_interactive_table.html") # Saving the improved interactive table to a HTML file
+print(improved_table)
+
+saveWidget(improved_table, "improved_table.html") # Saving the improved interactive table to a HTML file
 
 ```
 Now you should have something that looks like this: 
@@ -221,6 +223,8 @@ plot <- plot_ly(data = puffin_data,           # Using the puffin data
         color = ~country.list,                # Each country has a new colour 
         type = 'scatter',                     # Type of graph is scatter plot 
         mode = 'markers')                     # Each data point will be marked
+
+print(plot)
 
 saveWidget(plot, "interactive_scatter.html") 
 ```
@@ -284,6 +288,8 @@ improved_plot <- plot_ly(data = puffin_data,                                    
                      linecolor = 'black',                                                                       # Ensuring y axis line is black 
                      tickmode = "linear",                                                                       # Ticks on the y axis will be uniformly spread out
                      dtick = 1))                                                                                # The difference between each tick will be log1
+
+print(improved_plot)
 
 saveWidget(improved_plot, "improved_interactive_scatter.html") 
   ```
